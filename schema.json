@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Real Estate Properties Schema",
+  "description": "A schema for real estate properties in Tokyo, Japan, designed for semantic search. Includes property details, location, pricing, features, and proximity to train stations, with provisions for future train line data.",
+  "type": "object",
+  "properties": {
+    "properties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "property": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Unique identifier for the property."
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the property or building, often including unit number (e.g., 'GrandStory Nishiazabu #303')."
+              },
+              "unit_number": {
+                "type": ["string", "null"],
+                "description": "Specific unit within the building (e.g., '#303'), null for houses or properties without units."
+              },
+              "building_id": {
+                "type": "string",
+                "description": "Unique identifier for the building containing the property."
+              },
+              "address": {
+                "type": "object",
+                "properties": {
+                  "full": {
+                    "type": "string",
+                    "description": "Full address of the property (e.g., '2-20-11 Nishiazabu, Minato-ku, Tokyo')."
+                  },
+                  "latitude": {
+                    "type": "number",
+                    "description": "Geographic latitude for location-based searches."
+                  },
+                  "longitude": {
+                    "type": "number",
+                    "description": "Geographic longitude for location-based searches."
+                  }
+                },
+                "required": ["full", "latitude", "longitude"],
+                "description": "Address details including full address and coordinates."
+              },
+              "area": {
+                "type": "object",
+                "properties": {
+                  "m2": {
+                    "type": "number",
+                    "description": "Area in square meters."
+                  },
+                  "ft2": {
+                    "type": "number",
+                    "description": "Area in square feet."
+                  },
+                  "price_per_m2": {
+                    "type": "number",
+                    "description": "Price per square meter (JPY)."
+                  },
+                  "price_per_ft2": {
+                    "type": "number",
+                    "description": "Price per square foot (JPY)."
+                  }
+                },
+                "required": ["m2", "ft2", "price_per_m2", "price_per_ft2"],
+                "description": "Size and price per unit area of the property."
+              },
+              "type": {
+                "type": "string",
+                "enum": ["Apartment", "House"],
+                "description": "Type of property (e.g., 'Apartment' or 'House')."
+              },
+              "floor": {
+                "type": ["string", "null"],
+                "description": "Floor level (e.g., '3F (of 5F)'), null for houses."
+              },
+              "contract": {
+                "type": ["object", "null"],
+                "properties": {
+                  "length": {
+                    "type": ["string", "null"],
+                    "description": "Lease duration (e.g., '2 YearsStandard', '3 YearsFixed')."
+                  },
+                  "type": {
+                    "type": ["string", "null"],
+                    "enum": ["Standard", "Fixed", null],
+                    "description": "Contract type (e.g., 'Standard', 'Fixed')."
+                  }
+                },
+                "description": "Lease contract details, null if not specified."
+              },
+              "year_built": {
+                "type": "integer",
+                "description": "Year the property was built."
+              },
+              "price": {
+                "type": "object",
+                "properties": {
+                  "monthly_total": {
+                    "type": "integer",
+                    "description": "Total monthly cost (rent + management fee, JPY)."
+                  },
+                  "rent": {
+                    "type": "integer",
+                    "description": "Monthly rent (JPY)."
+                  },
+                  "management_fee": {
+                    "type": "integer",
+                    "description": "Monthly management fee (JPY)."
+                  },
+                  "currency": {
+                    "type": "string",
+                    "enum": ["JPY"],
+                    "description": "Currency of the price (e.g., 'JPY')."
+                  }
+                },
+                "required": [
+                  "monthly_total",
+                  "rent",
+                  "management_fee",
+                  "currency"
+                ],
+                "description": "Monthly pricing details."
+              },
+              "initial_cost_estimate": {
+                "type": "object",
+                "properties": {
+                  "first_month_rent": {
+                    "type": "integer",
+                    "description": "First month's rent (JPY)."
+                  },
+                  "guarantor_service": {
+                    "type": "integer",
+                    "description": "Guarantor service fee (JPY)."
+                  },
+                  "fire_insurance": {
+                    "type": ["integer", "null"],
+                    "description": "Fire insurance fee (JPY), null if not specified."
+                  },
+                  "agency_fee": {
+                    "type": "integer",
+                    "description": "Agency fee (JPY)."
+                  },
+                  "estimated_total": {
+                    "type": "integer",
+                    "description": "Estimated total initial cost (JPY)."
+                  }
+                },
+                "required": [
+                  "first_month_rent",
+                  "guarantor_service",
+                  "agency_fee",
+                  "estimated_total"
+                ],
+                "description": "Estimated initial costs for renting the property."
+              },
+              "requirements": {
+                "type": ["object", "null"],
+                "properties": {
+                  "japanese_required": {
+                    "type": "boolean",
+                    "description": "Whether conversational Japanese (N3+) is required."
+                  },
+                  "note": {
+                    "type": "string",
+                    "description": "Additional requirements or notes."
+                  }
+                },
+                "description": "Tenant requirements, null if none."
+              },
+              "features": {
+                "type": "object",
+                "properties": {
+                  "unit": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of unit amenities (e.g., 'Pet Friendly', 'Air Conditioning')."
+                  },
+                  "building": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of building amenities (e.g., 'Autolock', 'Elevator')."
+                  }
+                },
+                "required": ["unit", "building"],
+                "description": "Amenities for the unit and building."
+              },
+              "images": {
+                "type": "object",
+                "properties": {
+                  "main": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "URL of the main property image."
+                  },
+                  "thumbnails": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    },
+                    "description": "List of thumbnail image URLs."
+                  },
+                  "floorplan": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "URL of the floorplan image."
+                  }
+                },
+                "required": ["main", "thumbnails", "floorplan"],
+                "description": "Image URLs for the property."
+              },
+              "unit_notes": {
+                "type": ["string", "null"],
+                "description": "Additional notes about the unit, null if none."
+              },
+              "unit_notes_amenities": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Additional amenities notes, often empty."
+              },
+              "bedrooms": {
+                "type": ["integer", "null"],
+                "description": "Number of bedrooms, null if not specified."
+              },
+              "balcony": {
+                "type": ["string", "null"],
+                "description": "Balcony details, null if not specified."
+              },
+              "nearest_stations": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "station_name": {
+                      "type": "string",
+                      "description": "Name of the train station."
+                    },
+                    "walk_time_min": {
+                      "type": "integer",
+                      "description": "Walking time to the station in minutes."
+                    },
+                    "lines": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of train lines serving the station, empty until populated."
+                    }
+                  },
+                  "required": ["station_name", "walk_time_min", "lines"],
+                  "description": "Details of a nearby train station."
+                },
+                "description": "List of nearby train stations with walking times and future train line data."
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "unit_number",
+              "building_id",
+              "address",
+              "area",
+              "type",
+              "floor",
+              "contract",
+              "year_built",
+              "price",
+              "initial_cost_estimate",
+              "requirements",
+              "features",
+              "images",
+              "unit_notes",
+              "unit_notes_amenities",
+              "bedrooms",
+              "balcony",
+              "nearest_stations"
+            ],
+            "description": "Details of a single property."
+          }
+        },
+        "required": ["property"]
+      },
+      "description": "List of real estate properties."
+    }
+  },
+  "required": ["properties"]
+}

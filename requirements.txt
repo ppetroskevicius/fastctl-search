@@ -1,0 +1,14 @@
+# Core dependencies
+pydantic
+qdrant-client
+openai
+python-dotenv
+click
+
+# Standard library modules used:
+# - json
+# - os
+# - pathlib
+# - typing
+# - datetime
+# These do not need to be added.
