@@ -1,244 +1,949 @@
 {
-  "properties": [
-    {
-      "property": {
-        "id": "177020",
-        "name": "GrandStory Nishiazabu #303",
-        "unit_number": "#303",
-        "building_id": "160694",
-        "address": {
-          "full": "2-20-11 Nishiazabu, Minato-ku, Tokyo",
-          "latitude": 35.6617691,
-          "longitude": 139.7191087
-        },
-        "area": {
-          "m2": 94.21,
-          "ft2": 1014.0,
-          "price_per_m2": 7430,
-          "price_per_ft2": 690
-        },
-        "type": "Apartment",
-        "floor": "3F  (of 0F)",
-        "contract": {
-          "length": "2 YearsStandard",
-          "type": "Standard"
-        },
-        "year_built": 2022,
-        "price": {
-          "monthly_total": 700000,
-          "rent": 680000,
-          "management_fee": 20000,
-          "currency": "JPY"
-        },
-        "initial_cost_estimate": {
-          "first_month_rent": 700000,
-          "guarantor_service": 350000,
-          "fire_insurance": 23000,
-          "agency_fee": 680000,
-          "estimated_total": 1821000
-        },
-        "requirements": null,
-        "features": {
-          "unit": [
-            "Intercom",
-            "Air Conditioning",
-            "Toilet / Bathroom Separate",
-            "Range Type: Gas"
-          ],
-          "building": ["Autolock", "Parcel Locker"]
-        },
-        "images": {
-          "main": "https://apts.jp/system/property_image/image/2353628/property_image_01hfwy4v3yn4jdcqvm71nw772r.jpg",
-          "thumbnails": [
-            "https://apts.jp/system/property_image/image/2353645/property_image_01hq9pkd627an88hbgegtdeg6m.jpg",
-            "https://apts.jp/system/property_image/image/2353644/property_image_01hq9pkba90wagb78gyjsjjxpe.jpg",
-            "https://apts.jp/system/property_image/image/2353642/property_image_01hfwy893qbsmvckn9j2qefaa9.jpg",
-            "https://apts.jp/system/property_image/image/2353641/property_image_01hfwy7ze36r0wf9yrgsz82jb9.jpg",
-            "https://apts.jp/system/property_image/image/2353640/property_image_01hfwy7qvw7ynvdx3849psx03e.jpg",
-            "https://apts.jp/system/property_image/image/2353639/property_image_01hfwy7fd6c7aej2f8by7qepq7.jpg",
-            "https://apts.jp/system/property_image/image/2353638/property_image_01hfwy77qxxggq7kgzv2xnxn3p.jpg",
-            "https://apts.jp/system/property_image/image/2353632/property_image_01hfwy5n6q4fm4xepawev6a863.jpg",
-            "https://apts.jp/system/property_image/image/2353630/property_image_01hfwy5asedebr5qy6ja2jyd24.jpg",
-            "https://apts.jp/system/property_image/image/2353629/property_image_01hfwy56cpsqsrdkksy57439dt.jpg"
-          ],
-          "floorplan": "https://apts.jp/system/property_image/image/2353626/property_image_acd1ef27-9902-410b-839d-1c3b7174a3ff.jpg"
-        },
-        "unit_notes": null,
-        "unit_notes_amenities": [],
-        "bedrooms": null,
-        "balcony": null,
-        "nearest_stations": [
-          {
-            "station_name": "Omotesando Station",
-            "walk_time_min": 9,
-            "lines": []
+    "properties": [
+      {
+        "property": {
+          "id": "200001",
+          "name": "Minato Tower #303",
+          "unit_number": "#303",
+          "building_id": "180001",
+          "address": {
+            "full": "3-1-2 Roppongi, Minato-ku, Tokyo",
+            "latitude": 35.6628,
+            "longitude": 139.7314
           },
-          {
-            "station_name": "Nogizaka Station",
-            "walk_time_min": 14,
-            "lines": []
-          }
-        ]
-      }
-    },
-    {
-      "property": {
-        "id": "163619",
-        "name": "Lumiec Bunkyo Sengoku #104",
-        "unit_number": "#104",
-        "building_id": "163453",
-        "address": {
-          "full": "3-10-17 Sengoku, Bunkyo-ku, Tokyo",
-          "latitude": 35.7254775,
-          "longitude": 139.7374805
-        },
-        "area": {
-          "m2": 45.99,
-          "ft2": 495.0,
-          "price_per_m2": 5327,
-          "price_per_ft2": 494
-        },
-        "type": "Apartment",
-        "floor": "1F  (of 5F)",
-        "contract": {
-          "length": "2 YearsStandard",
-          "type": "Standard"
-        },
-        "year_built": 2025,
-        "price": {
-          "monthly_total": 245000,
-          "rent": 215000,
-          "management_fee": 30000,
-          "currency": "JPY"
-        },
-        "initial_cost_estimate": {
-          "first_month_rent": 245000,
-          "guarantor_service": 122500,
-          "fire_insurance": 20000,
-          "agency_fee": 215000,
-          "estimated_total": 624000
-        },
-        "requirements": {
-          "japanese_required": true,
-          "note": "Due to guarantor company screening process, tenant must speak conversational Japanese for this rental (N3+), to pass the screening call.•Filter for \"Don't speak Japanese\" on our Rent search engine, if you don't speak Japanese."
-        },
-        "features": {
-          "unit": [
-            "Pet Friendly(+1 mo deposit)",
-            "Intercom",
-            "Air Conditioning",
-            "Toilet / Bathroom Separate",
-            "Range Type: IH"
-          ],
-          "building": ["Bicycle Storage", "Autolock", "Parcel Locker"]
-        },
-        "images": {
-          "main": "https://apts.jp/system/property_image/image/2376171/property_image_01jaq74tsxxbtkpkjgst3972sn.jpg",
-          "thumbnails": [
-            "https://apts.jp/system/property_image/image/2376165/property_image_01jaq74tde0njwkmkn54v9c1qf.jpg",
-            "https://apts.jp/system/property_image/image/2376166/property_image_01jaq74tb6f4rkahf651yhnch5.jpg",
-            "https://apts.jp/system/property_image/image/2376168/property_image_01jaq74tk7c5wdnvscn7tysav5.jpg",
-            "https://apts.jp/system/property_image/image/2376169/property_image_01jaq74tgcwahbg476ptp1wzr2.jpg",
-            "https://apts.jp/system/property_image/image/2376170/property_image_01jaq74tr47ngkvjkctxn5vrdt.jpg",
-            "https://apts.jp/system/property_image/image/2376167/property_image_01jaq74tp40z7xjnxwjd5eywee.jpg",
-            "https://apts.jp/system/property_image/image/2270556/1.jpg",
-            "https://apts.jp/system/property_image/image/2270557/2.jpg"
-          ],
-          "floorplan": "https://apts.jp/system/property_image/image/2376164/property_image_01hxjk68nqy7zj3bqgazk93e6w.jpg"
-        },
-        "unit_notes": null,
-        "unit_notes_amenities": [],
-        "bedrooms": null,
-        "balcony": null,
-        "nearest_stations": [
-          {
-            "station_name": "Sengoku Station",
-            "walk_time_min": 11,
-            "lines": []
+          "area": {
+            "m2": 80.0,
+            "ft2": 861.1,
+            "price_per_m2": 6250,
+            "price_per_ft2": 580
           },
-          {
-            "station_name": "Shin Otsuka Station",
-            "walk_time_min": 15,
-            "lines": []
-          }
-        ]
+          "type": "Apartment",
+          "floor": "3F (of 15F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2023,
+          "price": {
+            "monthly_total": 500000,
+            "rent": 480000,
+            "management_fee": 20000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 500000,
+            "guarantor_service": 250000,
+            "fire_insurance": 20000,
+            "agency_fee": 480000,
+            "estimated_total": 1250000
+          },
+          "requirements": {
+            "japanese_required": false,
+            "note": "No language requirement."
+          },
+          "features": {
+            "unit": ["Pet Friendly(+1 mo deposit)", "Dishwasher", "Air Conditioning", "Toilet / Bathroom Separate"],
+            "building": ["Elevator", "Autolock", "Parcel Locker"]
+          },
+          "images": {
+            "main": "https://example.com/images/minato_tower_main.jpg",
+            "thumbnails": ["https://example.com/images/minato_tower_thumb1.jpg", "https://example.com/images/minato_tower_thumb2.jpg"],
+            "floorplan": "https://example.com/images/minato_tower_floorplan.jpg"
+          },
+          "unit_notes": "Modern unit with city views",
+          "unit_notes_amenities": ["High-speed internet"],
+          "bedrooms": 2,
+          "balcony": "Yes",
+          "nearest_stations": [
+            {
+              "station_name": "Roppongi Station",
+              "walk_time_min": 5,
+              "lines": ["Hibiya Line", "Oedo Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200002",
+          "name": "Shibuya Compact #102",
+          "unit_number": "#102",
+          "building_id": "180002",
+          "address": {
+            "full": "1-2-3 Dogenzaka, Shibuya-ku, Tokyo",
+            "latitude": 35.6596,
+            "longitude": 139.6998
+          },
+          "area": {
+            "m2": 25.0,
+            "ft2": 269.1,
+            "price_per_m2": 5200,
+            "price_per_ft2": 483
+          },
+          "type": "Apartment",
+          "floor": "1F (of 5F)",
+          "contract": {
+            "length": "6 MonthsShort",
+            "type": "Fixed"
+          },
+          "year_built": 2021,
+          "price": {
+            "monthly_total": 130000,
+            "rent": 130000,
+            "management_fee": 0,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 130000,
+            "guarantor_service": 0,
+            "fire_insurance": 15000,
+            "agency_fee": 130000,
+            "estimated_total": 275000
+          },
+          "requirements": {
+            "japanese_required": true,
+            "note": "Conversational Japanese required (N3+)."
+          },
+          "features": {
+            "unit": ["Air Conditioning", "Intercom"],
+            "building": ["Bicycle Storage"]
+          },
+          "images": {
+            "main": "https://example.com/images/shibuya_compact_main.jpg",
+            "thumbnails": ["https://example.com/images/shibuya_compact_thumb1.jpg"],
+            "floorplan": "https://example.com/images/shibuya_compact_floorplan.jpg"
+          },
+          "unit_notes": null,
+          "unit_notes_amenities": [],
+          "bedrooms": 1,
+          "balcony": null,
+          "nearest_stations": [
+            {
+              "station_name": "Shibuya Station",
+              "walk_time_min": 7,
+              "lines": ["Odawara Line", "Yamanote Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200003",
+          "name": "Bunkyo Garden #502",
+          "unit_number": "#502",
+          "building_id": "180003",
+          "address": {
+            "full": "2-3-4 Koishikawa, Bunkyo-ku, Tokyo",
+            "latitude": 35.7112,
+            "longitude": 139.7432
+          },
+          "area": {
+            "m2": 60.0,
+            "ft2": 645.8,
+            "price_per_m2": 5000,
+            "price_per_ft2": 464
+          },
+          "type": "Apartment",
+          "floor": "5F (of 10F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2022,
+          "price": {
+            "monthly_total": 300000,
+            "rent": 280000,
+            "management_fee": 20000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 300000,
+            "guarantor_service": 150000,
+            "fire_insurance": 0,
+            "agency_fee": 280000,
+            "estimated_total": 730000
+          },
+          "requirements": {
+            "japanese_required": false,
+            "note": "No language requirement, ideal for foreigners."
+          },
+          "features": {
+            "unit": ["Air Conditioning", "Balcony", "Tatami Room"],
+            "building": ["Elevator", "On-site Garbage Room"]
+          },
+          "images": {
+            "main": "https://example.com/images/bunkyo_garden_main.jpg",
+            "thumbnails": ["https://example.com/images/bunkyo_garden_thumb1.jpg"],
+            "floorplan": "https://example.com/images/bunkyo_garden_floorplan.jpg"
+          },
+          "unit_notes": "Traditional Japanese elements",
+          "unit_notes_amenities": ["Tatami maintenance service"],
+          "bedrooms": 2,
+          "balcony": "Yes",
+          "nearest_stations": [
+            {
+              "station_name": "Korakuen Station",
+              "walk_time_min": 6,
+              "lines": ["Marunouchi Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200004",
+          "name": "Setagaya Heights #701",
+          "unit_number": "#701",
+          "building_id": "180004",
+          "address": {
+            "full": "4-5-6 Sakuragaoka, Setagaya-ku, Tokyo",
+            "latitude": 35.6389,
+            "longitude": 139.6287
+          },
+          "area": {
+            "m2": 100.0,
+            "ft2": 1076.4,
+            "price_per_m2": 6500,
+            "price_per_ft2": 604
+          },
+          "type": "Apartment",
+          "floor": "7F (of 12F)",
+          "contract": {
+            "length": "1 YearFlexible",
+            "type": "Fixed"
+          },
+          "year_built": 2024,
+          "price": {
+            "monthly_total": 650000,
+            "rent": 620000,
+            "management_fee": 30000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 650000,
+            "guarantor_service": 325000,
+            "fire_insurance": 25000,
+            "agency_fee": 620000,
+            "estimated_total": 1620000
+          },
+          "requirements": {
+            "japanese_required": false,
+            "note": "English-speaking landlord."
+          },
+          "features": {
+            "unit": ["Pet Friendly(+1 mo deposit)", "Walk-in Closet", "Washlet Toilet"],
+            "building": ["Fitness Facility", "Lounge", "Terrace"]
+          },
+          "images": {
+            "main": "https://example.com/images/setagaya_heights_main.jpg",
+            "thumbnails": ["https://example.com/images/setagaya_heights_thumb1.jpg", "https://example.com/images/setagaya_heights_thumb2.jpg"],
+            "floorplan": "https://example.com/images/setagaya_heights_floorplan.jpg"
+          },
+          "unit_notes": "Luxury unit with spacious layout",
+          "unit_notes_amenities": ["Smart home system"],
+          "bedrooms": 3,
+          "balcony": "Yes",
+          "nearest_stations": [
+            {
+              "station_name": "Chitose-Funabashi Station",
+              "walk_time_min": 8,
+              "lines": ["Odakyu Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200005",
+          "name": "Shinjuku Loft #201",
+          "unit_number": "#201",
+          "building_id": "180005",
+          "address": {
+            "full": "2-1-3 Kabukicho, Shinjuku-ku, Tokyo",
+            "latitude": 35.6953,
+            "longitude": 139.7032
+          },
+          "area": {
+            "m2": 35.0,
+            "ft2": 376.7,
+            "price_per_m2": 5714,
+            "price_per_ft2": 531
+          },
+          "type": "Apartment",
+          "floor": "2F (of 8F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2019,
+          "price": {
+            "monthly_total": 200000,
+            "rent": 190000,
+            "management_fee": 10000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 200000,
+            "guarantor_service": 100000,
+            "fire_insurance": 18000,
+            "agency_fee": 190000,
+            "estimated_total": 508000
+          },
+          "requirements": {
+            "japanese_required": true,
+            "note": "Japanese required for contract signing."
+          },
+          "features": {
+            "unit": ["Loft", "Free Internet", "Range Type: IH"],
+            "building": ["Autolock", "Bicycle Storage"]
+          },
+          "images": {
+            "main": "https://example.com/images/shinjuku_loft_main.jpg",
+            "thumbnails": ["https://example.com/images/shinjuku_loft_thumb1.jpg"],
+            "floorplan": "https://example.com/images/shinjuku_loft_floorplan.jpg"
+          },
+          "unit_notes": "Unique loft design",
+          "unit_notes_amenities": [],
+          "bedrooms": 1,
+          "balcony": null,
+          "nearest_stations": [
+            {
+              "station_name": "Shinjuku Station",
+              "walk_time_min": 10,
+              "lines": ["Yamanote Line", "Chuo Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200006",
+          "name": "Meguro Riverside #1001",
+          "unit_number": "#1001",
+          "building_id": "180006",
+          "address": {
+            "full": "1-2-3 Kamiosaki, Meguro-ku, Tokyo",
+            "latitude": 35.6375,
+            "longitude": 139.7067
+          },
+          "area": {
+            "m2": 120.0,
+            "ft2": 1291.7,
+            "price_per_m2": 8333,
+            "price_per_ft2": 774
+          },
+          "type": "Apartment",
+          "floor": "10F (of 15F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2025,
+          "price": {
+            "monthly_total": 1000000,
+            "rent": 950000,
+            "management_fee": 50000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 1000000,
+            "guarantor_service": 500000,
+            "fire_insurance": 30000,
+            "agency_fee": 950000,
+            "estimated_total": 2480000
+          },
+          "requirements": {
+            "japanese_required": false,
+            "note": "International tenants welcome."
+          },
+          "features": {
+            "unit": ["Furnished", "Oven", "Security system for each unit"],
+            "building": ["Concierge", "Spa", "Stylish"]
+          },
+          "images": {
+            "main": "https://example.com/images/meguro_riverside_main.jpg",
+            "thumbnails": ["https://example.com/images/meguro_riverside_thumb1.jpg", "https://example.com/images/meguro_riverside_thumb2.jpg"],
+            "floorplan": "https://example.com/images/meguro_riverside_floorplan.jpg"
+          },
+          "unit_notes": "Premium furnished unit",
+          "unit_notes_amenities": ["Concierge service access"],
+          "bedrooms": 4,
+          "balcony": "Yes",
+          "nearest_stations": [
+            {
+              "station_name": "Meguro Station",
+              "walk_time_min": 5,
+              "lines": ["Yamanote Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200007",
+          "name": "Toshima Budget #301",
+          "unit_number": "#301",
+          "building_id": "180007",
+          "address": {
+            "full": "3-4-5 Ikebukuro, Toshima-ku, Tokyo",
+            "latitude": 35.7312,
+            "longitude": 139.7109
+          },
+          "area": {
+            "m2": 20.0,
+            "ft2": 215.3,
+            "price_per_m2": 5500,
+            "price_per_ft2": 511
+          },
+          "type": "Apartment",
+          "floor": "3F (of 6F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2018,
+          "price": {
+            "monthly_total": 110000,
+            "rent": 100000,
+            "management_fee": 10000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 110000,
+            "guarantor_service": 50000,
+            "fire_insurance": 12000,
+            "agency_fee": 100000,
+            "estimated_total": 272000
+          },
+          "requirements": {
+            "japanese_required": false,
+            "note": null
+          },
+          "features": {
+            "unit": ["Air Conditioning", "Range Type: Electric"],
+            "building": ["Autolock"]
+          },
+          "images": {
+            "main": "https://example.com/images/toshima_budget_main.jpg",
+            "thumbnails": ["https://example.com/images/toshima_budget_thumb1.jpg"],
+            "floorplan": "https://example.com/images/toshima_budget_floorplan.jpg"
+          },
+          "unit_notes": null,
+          "unit_notes_amenities": [],
+          "bedrooms": 1,
+          "balcony": null,
+          "nearest_stations": [
+            {
+              "station_name": "Ikebukuro Station",
+              "walk_time_min": 8,
+              "lines": ["Yamanote Line", "Saikyo Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200008",
+          "name": "Chuo City View #1202",
+          "unit_number": "#1202",
+          "building_id": "180008",
+          "address": {
+            "full": "2-3-4 Nihonbashi, Chuo-ku, Tokyo",
+            "latitude": 35.6817,
+            "longitude": 139.7745
+          },
+          "area": {
+            "m2": 90.0,
+            "ft2": 968.8,
+            "price_per_m2": 6667,
+            "price_per_ft2": 619
+          },
+          "type": "Apartment",
+          "floor": "12F (of 20F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2023,
+          "price": {
+            "monthly_total": 600000,
+            "rent": 570000,
+            "management_fee": 30000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 600000,
+            "guarantor_service": 300000,
+            "fire_insurance": 22000,
+            "agency_fee": 570000,
+            "estimated_total": 1492000
+          },
+          "requirements": {
+            "japanese_required": false,
+            "note": "English contract available."
+          },
+          "features": {
+            "unit": ["Floor Heating", "Washer & Dryer", "Balcony"],
+            "building": ["Bilingual Concierge", "Extra Storage Available"]
+          },
+          "images": {
+            "main": "https://example.com/images/chuo_city_view_main.jpg",
+            "thumbnails": ["https://example.com/images/chuo_city_view_thumb1.jpg"],
+            "floorplan": "https://example.com/images/chuo_city_view_floorplan.jpg"
+          },
+          "unit_notes": "Panoramic city views",
+          "unit_notes_amenities": ["Storage rental option"],
+          "bedrooms": 3,
+          "balcony": "Yes",
+          "nearest_stations": [
+            {
+              "station_name": "Tokyo Station",
+              "walk_time_min": 10,
+              "lines": ["Yamanote Line", "Shinkansen"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200009",
+          "name": "Koto Modern #405",
+          "unit_number": "#405",
+          "building_id": "180009",
+          "address": {
+            "full": "1-2-3 Toyosu, Koto-ku, Tokyo",
+            "latitude": 35.6552,
+            "longitude": 139.7963
+          },
+          "area": {
+            "m2": 70.0,
+            "ft2": 753.5,
+            "price_per_m2": 5714,
+            "price_per_ft2": 531
+          },
+          "type": "Apartment",
+          "floor": "4F (of 9F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2020,
+          "price": {
+            "monthly_total": 400000,
+            "rent": 380000,
+            "management_fee": 20000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 400000,
+            "guarantor_service": 0,
+            "fire_insurance": 0,
+            "agency_fee": 380000,
+            "estimated_total": 780000
+          },
+          "requirements": {
+            "japanese_required": false,
+            "note": null
+          },
+          "features": {
+            "unit": ["Disposer", "Refrigerator", "Balcony"],
+            "building": ["Children’s Playroom", "Parking"]
+          },
+          "images": {
+            "main": "https://example.com/images/koto_modern_main.jpg",
+            "thumbnails": ["https://example.com/images/koto_modern_thumb1.jpg"],
+            "floorplan": "https://example.com/images/koto_modern_floorplan.jpg"
+          },
+          "unit_notes": "Family-friendly unit",
+          "unit_notes_amenities": [],
+          "bedrooms": 2,
+          "balcony": "Yes",
+          "nearest_stations": [
+            {
+              "station_name": "Toyosu Station",
+              "walk_time_min": 4,
+              "lines": ["Yurakucho Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200010",
+          "name": "Nakano Cozy #202",
+          "unit_number": "#202",
+          "building_id": "180010",
+          "address": {
+            "full": "5-6-7 Nakano, Nakano-ku, Tokyo",
+            "latitude": 35.7078,
+            "longitude": 139.6654
+          },
+          "area": {
+            "m2": 30.0,
+            "ft2": 322.9,
+            "price_per_m2": 5333,
+            "price_per_ft2": 495
+          },
+          "type": "Apartment",
+          "floor": "2F (of 4F)",
+          "contract": {
+            "length": "1 YearFlexible",
+            "type": "Fixed"
+          },
+          "year_built": 2017,
+          "price": {
+            "monthly_total": 160000,
+            "rent": 150000,
+            "management_fee": 10000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 160000,
+            "guarantor_service": 80000,
+            "fire_insurance": 14000,
+            "agency_fee": 150000,
+            "estimated_total": 404000
+          },
+          "requirements": {
+            "japanese_required": true,
+            "note": "Japanese required for tenant screening."
+          },
+          "features": {
+            "unit": ["Washer In-Unit", "Intercom"],
+            "building": ["Community-wide WiFi"]
+          },
+          "images": {
+            "main": "https://example.com/images/nakano_cozy_main.jpg",
+            "thumbnails": ["https://example.com/images/nakano_cozy_thumb1.jpg"],
+            "floorplan": "https://example.com/images/nakano_cozy_floorplan.jpg"
+          },
+          "unit_notes": null,
+          "unit_notes_amenities": [],
+          "bedrooms": 1,
+          "balcony": null,
+          "nearest_stations": [
+            {
+              "station_name": "Nakano Station",
+              "walk_time_min": 6,
+              "lines": ["Chuo Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200011",
+          "name": "Suginami Classic #601",
+          "unit_number": "#601",
+          "building_id": "180011",
+          "address": {
+            "full": "3-4-5 Ogikubo, Suginami-ku, Tokyo",
+            "latitude": 35.7041,
+            "longitude": 139.6203
+          },
+          "area": {
+            "m2": 55.0,
+            "ft2": 592.0,
+            "price_per_m2": 5455,
+            "price_per_ft2": 507
+          },
+          "type": "Apartment",
+          "floor": "6F (of 8F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2016,
+          "price": {
+            "monthly_total": 300000,
+            "rent": 280000,
+            "management_fee": 20000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 300000,
+            "guarantor_service": 140000,
+            "fire_insurance": 16000,
+            "agency_fee": 280000,
+            "estimated_total": 736000
+          },
+          "requirements": {
+            "japanese_required": false,
+            "note": null
+          },
+          "features": {
+            "unit": ["Tatami Room", "Air Conditioning", "Balcony"],
+            "building": ["Bldg. Superintendent"]
+          },
+          "images": {
+            "main": "https://example.com/images/suginami_classic_main.jpg",
+            "thumbnails": ["https://example.com/images/suginami_classic_thumb1.jpg"],
+            "floorplan": "https://example.com/images/suginami_classic_floorplan.jpg"
+          },
+          "unit_notes": "Traditional Japanese style",
+          "unit_notes_amenities": [],
+          "bedrooms": 2,
+          "balcony": "Yes",
+          "nearest_stations": [
+            {
+              "station_name": "Ogikubo Station",
+              "walk_time_min": 7,
+              "lines": ["Chuo Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200012",
+          "name": "Itabashi Value #101",
+          "unit_number": "#101",
+          "building_id": "180012",
+          "address": {
+            "full": "2-3-4 Takashimadaira, Itabashi-ku, Tokyo",
+            "latitude": 35.7912,
+            "longitude": 139.6267
+          },
+          "area": {
+            "m2": 40.0,
+            "ft2": 430.6,
+            "price_per_m2": 4500,
+            "price_per_ft2": 418
+          },
+          "type": "Apartment",
+          "floor": "1F (of 5F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2015,
+          "price": {
+            "monthly_total": 180000,
+            "rent": 170000,
+            "management_fee": 10000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 180000,
+            "guarantor_service": 85000,
+            "fire_insurance": 13000,
+            "agency_fee": 170000,
+            "estimated_total": 448000
+          },
+          "requirements": {
+            "japanese_required": true,
+            "note": "Japanese required for communication."
+          },
+          "features": {
+            "unit": ["Air Conditioning", "Range Type: Gas"],
+            "building": ["Autolock"]
+          },
+          "images": {
+            "main": "https://example.com/images/itabashi_value_main.jpg",
+            "thumbnails": ["https://example.com/images/itabashi_value_thumb1.jpg"],
+            "floorplan": "https://example.com/images/itabashi_value_floorplan.jpg"
+          },
+          "unit_notes": null,
+          "unit_notes_amenities": [],
+          "bedrooms": 1,
+          "balcony": null,
+          "nearest_stations": [
+            {
+              "station_name": "Takashimadaira Station",
+              "walk_time_min": 5,
+              "lines": ["Toei Mita Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200013",
+          "name": "Ota Skyline #802",
+          "unit_number": "#802",
+          "building_id": "180013",
+          "address": {
+            "full": "1-2-3 Kamata, Ota-ku, Tokyo",
+            "latitude": 35.5612,
+            "longitude": 139.7163
+          },
+          "area": {
+            "m2": 85.0,
+            "ft2": 914.9,
+            "price_per_m2": 6471,
+            "price_per_ft2": 601
+          },
+          "type": "Apartment",
+          "floor": "8F (of 10F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2022,
+          "price": {
+            "monthly_total": 550000,
+            "rent": 520000,
+            "management_fee": 30000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 550000,
+            "guarantor_service": 260000,
+            "fire_insurance": 20000,
+            "agency_fee": 520000,
+            "estimated_total": 1350000
+          },
+          "requirements": {
+            "japanese_required": false,
+            "note": null
+          },
+          "features": {
+            "unit": ["Pet Friendly(+1 mo deposit)", "Floor Heating", "Balcony"],
+            "building": ["Elevator", "Parking"]
+          },
+          "images": {
+            "main": "https://example.com/images/ota_skyline_main.jpg",
+            "thumbnails": ["https://example.com/images/ota_skyline_thumb1.jpg"],
+            "floorplan": "https://example.com/images/ota_skyline_floorplan.jpg"
+          },
+          "unit_notes": "Modern design with open layout",
+          "unit_notes_amenities": [],
+          "bedrooms": 3,
+          "balcony": "Yes",
+          "nearest_stations": [
+            {
+              "station_name": "Kamata Station",
+              "walk_time_min": 6,
+              "lines": ["Keihin-Tohoku Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200014",
+          "name": "Adachi Urban #503",
+          "unit_number": "#503",
+          "building_id": "180014",
+          "address": {
+            "full": "2-3-4 Ayase, Adachi-ku, Tokyo",
+            "latitude": 35.7623,
+            "longitude": 139.8254
+          },
+          "area": {
+            "m2": 45.0,
+            "ft2": 484.4,
+            "price_per_m2": 4889,
+            "price_per_ft2": 454
+          },
+          "type": "Apartment",
+          "floor": "5F (of 7F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2019,
+          "price": {
+            "monthly_total": 220000,
+            "rent": 200000,
+            "management_fee": 20000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 220000,
+            "guarantor_service": 100000,
+            "fire_insurance": 15000,
+            "agency_fee": 200000,
+            "estimated_total": 535000
+          },
+          "requirements": {
+            "japanese_required": false,
+            "note": null
+          },
+          "features": {
+            "unit": ["Air Conditioning", "Balcony", "Free Internet"],
+            "building": ["Autolock", "Bicycle Storage"]
+          },
+          "images": {
+            "main": "https://example.com/images/adachi_urban_main.jpg",
+            "thumbnails": ["https://example.com/images/adachi_urban_thumb1.jpg"],
+            "floorplan": "https://example.com/images/adachi_urban_floorplan.jpg"
+          },
+          "unit_notes": null,
+          "unit_notes_amenities": [],
+          "bedrooms": 2,
+          "balcony": "Yes",
+          "nearest_stations": [
+            {
+              "station_name": "Ayase Station",
+              "walk_time_min": 5,
+              "lines": ["Chiyoda Line"]
+            }
+          ]
+        }
+      },
+      {
+        "property": {
+          "id": "200015",
+          "name": "Katsushika Home #304",
+          "unit_number": "#304",
+          "building_id": "180015",
+          "address": {
+            "full": "1-2-3 Kameari, Katsushika-ku, Tokyo",
+            "latitude": 35.7665,
+            "longitude": 139.8487
+          },
+          "area": {
+            "m2": 50.0,
+            "ft2": 538.2,
+            "price_per_m2": 4800,
+            "price_per_ft2": 446
+          },
+          "type": "Apartment",
+          "floor": "3F (of 6F)",
+          "contract": {
+            "length": "2 YearsStandard",
+            "type": "Standard"
+          },
+          "year_built": 2021,
+          "price": {
+            "monthly_total": 240000,
+            "rent": 220000,
+            "management_fee": 20000,
+            "currency": "JPY"
+          },
+          "initial_cost_estimate": {
+            "first_month_rent": 240000,
+            "guarantor_service": 110000,
+            "fire_insurance": 14000,
+            "agency_fee": 220000,
+            "estimated_total": 584000
+          },
+          "requirements": {
+            "japanese_required": false,
+            "note": null
+          },
+          "features": {
+            "unit": ["Air Conditioning", "Balcony", "Tatami Room"],
+            "building": ["Elevator"]
+          },
+          "images": {
+            "main": "https://example.com/images/katsushika_home_main.jpg",
+            "thumbnails": ["https://example.com/images/katsushika_home_thumb1.jpg"],
+            "floorplan": "https://example.com/images/katsushika_home_floorplan.jpg"
+          },
+          "unit_notes": "Traditional and modern blend",
+          "unit_notes_amenities": [],
+          "bedrooms": 2,
+          "balcony": "Yes",
+          "nearest_stations": [
+            {
+              "station_name": "Kameari Station",
+              "walk_time_min": 6,
+              "lines": ["Joban Line"]
+            }
+          ]
+        }
       }
-    },
-    {
-      "property": {
-        "id": "176782",
-        "name": "RUMIX Chitosefunabashi #102",
-        "unit_number": "#102",
-        "building_id": "163457",
-        "address": {
-          "full": "2-3-7 Funabashi, Setagaya-ku, Tokyo",
-          "latitude": 35.6510967,
-          "longitude": 139.6246488
-        },
-        "area": {
-          "m2": 31.98,
-          "ft2": 344.0,
-          "price_per_m2": 5941,
-          "price_per_ft2": 552
-        },
-        "type": "Apartment",
-        "floor": "1F  (of 5F)",
-        "contract": {
-          "length": "2 YearsStandard",
-          "type": "Standard"
-        },
-        "year_built": 2024,
-        "price": {
-          "monthly_total": 190000,
-          "rent": 160000,
-          "management_fee": 30000,
-          "currency": "JPY"
-        },
-        "initial_cost_estimate": {
-          "first_month_rent": 190000,
-          "guarantor_service": 95000,
-          "fire_insurance": 20000,
-          "agency_fee": 160000,
-          "estimated_total": 481000
-        },
-        "requirements": null,
-        "features": {
-          "unit": [
-            "Pet Friendly(+1 mo deposit)",
-            "Intercom",
-            "Air Conditioning",
-            "Toilet / Bathroom Separate"
-          ],
-          "building": ["Bicycle Storage", "Autolock", "Parcel Locker"]
-        },
-        "images": {
-          "main": "https://apts.jp/system/property_image/image/2349907/property_image_01j0a8cg4mrpsh5w959dkhvqjt.jpg",
-          "thumbnails": [
-            "https://apts.jp/system/property_image/image/2349909/property_image_01j0a8cgbdafrc1dr2ezsnmn6r.jpg",
-            "https://apts.jp/system/property_image/image/2349910/property_image_01j0a8cg4g4z0vkfqxzp6mf05g.jpg",
-            "https://apts.jp/system/property_image/image/2349906/property_image_01j0a8cg88h307a9fqnhm9g5mn.jpg",
-            "https://apts.jp/system/property_image/image/2349908/property_image_01j0a8cg415vj0wcedfqtrag9s.jpg",
-            "https://apts.jp/system/property_image/image/2349911/property_image_01j0a8cg5an6ts7h397mf8019q.jpg",
-            "https://apts.jp/system/property_image/image/2349912/property_image_01j0a8cg821y2315esdy60xfnf.jpg",
-            "https://apts.jp/system/property_image/image/2349904/property_image_01j0a8cfwh0250ydwzj71hzdfe.jpg",
-            "https://apts.jp/system/property_image/image/2349905/property_image_01j0a8cfwv4ee24dc1e2ywvkka.jpg",
-            "https://apts.jp/system/property_image/image/2167047/property_image_01j4tk1r822dpmz1jsf2y74krx.jpg",
-            "https://apts.jp/system/property_image/image/2167033/property_image_01j0ab1yv9anam1c9ztcyvjbhb.jpg"
-          ],
-          "floorplan": "https://apts.jp/system/property_image/image/2349902/property_image_01j0a8wfqwj5h14fmrz2yfb51g.jpg"
-        },
-        "unit_notes": null,
-        "unit_notes_amenities": [],
-        "bedrooms": null,
-        "balcony": null,
-        "nearest_stations": [
-          {
-            "station_name": "Chitose Funabashi Station",
-            "walk_time_min": 6,
-            "lines": []
-          }
-        ]
-      }
-    }
-  ]
-}
+    ]
+  }

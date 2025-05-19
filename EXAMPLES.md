@@ -1,12 +1,12 @@
-# fastctl-search
+# Real Estate Property Semantic Search Use Cases
 
 To build a semantic search system for your real estate properties JSON data, we need to design queries that leverage the semantic meaning of user input and match it to relevant property attributes. Semantic search typically involves embedding textual and numerical data into a vector space using models like BERT, Sentence Transformers, or other NLP tools, then retrieving properties based on vector similarity (e.g., cosine similarity). The JSON schema and data provided earlier include fields like `address`, `area`, `price`, `type`, `year_built`, `nearest_stations`, `features`, and `requirements`, which are ideal for semantic search.
 
 Below, I’ll provide examples of semantic search queries tailored to your real estate data, explain how they would work, and suggest how to process them. These examples assume you’ve preprocessed the data (e.g., combining relevant text fields and embedding them) and have a system to handle both semantic (text-based) and structured (numerical/filter-based) queries. I’ll also consider the data’s structure and content, such as the fact that all properties are for rent in Tokyo, Japan, and include fields like `address.full`, `area.m2`, and `nearest_stations`.
 
-### Semantic Search Query Examples
+## Semantic Search Query Examples
 
-#### 1. Natural Language Query: "Modern apartment near Omotesando with at least 80 square meters"
+### 1. Natural Language Query: "Modern apartment near Omotesando with at least 80 square meters"
 
 - **User Intent**: Find a spacious, modern apartment for rent close to Omotesando Station.
 - **Relevant Data Fields**:
@@ -34,7 +34,7 @@ Below, I’ll provide examples of semantic search queries tailored to your real 
   - Apply filters post-semantic search to narrow down results.
   - Boost relevance for properties with closer `walk_time_min` to Omotesando.
 
-#### 2. Query: "Affordable apartment in Shibuya for a non-Japanese speaker"
+### 2. Query: "Affordable apartment in Shibuya for a non-Japanese speaker"
 
 - **User Intent**: Find a budget-friendly rental in Shibuya-ku that doesn’t require Japanese language skills.
 - **Relevant Data Fields**:
@@ -59,7 +59,7 @@ Below, I’ll provide examples of semantic search queries tailored to your real 
     - Use regex or string matching for "Shibuya-ku" in `address.full`.
     - If `requirements` is often `null`, treat it as allowing non-Japanese speakers unless specified otherwise.
 
-#### 3. Query: "Spacious high-floor apartment near a station in Tokyo"
+### 3. Query: "Spacious high-floor apartment near a station in Tokyo"
 
 - **User Intent**: Find a large apartment on a higher floor with good station access.
 - **Relevant Data Fields**:
@@ -87,7 +87,7 @@ Below, I’ll provide examples of semantic search queries tailored to your real 
   - Sort results by `walk_time_min` to prioritize closer stations.
   - Use `area.m2` as a primary filter for "spacious."
 
-#### 4. Query: "New apartment in a quiet area with a balcony"
+### 4. Query: "New apartment in a quiet area with a balcony"
 
 - **User Intent**: Find a recently built apartment in a less busy Tokyo ward with a balcony.
 - **Relevant Data Fields**:
@@ -113,7 +113,7 @@ Below, I’ll provide examples of semantic search queries tailored to your real 
     - Since `balcony` is `null` in the data, consider adding this field or using `unit_notes` or `features` for balcony information.
     - Use `year_built` as a primary filter for "new."
 
-#### 5. Query: "Luxury apartment in Minato-ku with good transport links"
+### 5. Query: "Luxury apartment in Minato-ku with good transport links"
 
 - **User Intent**: Find a high-end apartment in Minato-ku with proximity to multiple stations.
 - **Relevant Data Fields**:
@@ -141,7 +141,7 @@ Below, I’ll provide examples of semantic search queries tailored to your real 
   - Count `nearest_stations` entries to ensure good transport links.
   - Optionally, boost properties with `features.unit` or `features.building` if populated in future data (e.g., "concierge" or "gym").
 
-### Implementation Guidance for Semantic Search
+## Implementation Guidance for Semantic Search
 
 To execute these queries, follow these steps:
 
@@ -163,7 +163,7 @@ To execute these queries, follow these steps:
    - **Database**: PostgreSQL with PostGIS for geospatial queries or Elasticsearch for hybrid search (text + filters).
 5. **Handling Japanese**: Since the data includes Japanese addresses and some properties require Japanese (e.g., `requirements.japanese_required`), use a multilingual embedding model (e.g., `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2`) to handle English and Japanese queries.
 
-### Notes and Limitations
+## Notes and Limitations
 
 - **Data Gaps**: Fields like `bedrooms`, `balcony`, `features.unit`, and `features.building` are often `null` or empty, limiting their use in semantic search. Consider enriching the dataset with these details.
 - **Price Range**: The provided data has rentals from 190,000 to 700,000 JPY. For "affordable" queries, adjust thresholds based on your dataset’s distribution.
