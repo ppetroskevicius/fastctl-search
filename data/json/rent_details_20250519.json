@@ -1,0 +1,244 @@
+{
+  "properties": [
+    {
+      "property": {
+        "id": "177020",
+        "name": "GrandStory Nishiazabu #303",
+        "unit_number": "#303",
+        "building_id": "160694",
+        "address": {
+          "full": "2-20-11 Nishiazabu, Minato-ku, Tokyo",
+          "latitude": 35.6617691,
+          "longitude": 139.7191087
+        },
+        "area": {
+          "m2": 94.21,
+          "ft2": 1014.0,
+          "price_per_m2": 7430,
+          "price_per_ft2": 690
+        },
+        "type": "Apartment",
+        "floor": "3F  (of 0F)",
+        "contract": {
+          "length": "2 YearsStandard",
+          "type": "Standard"
+        },
+        "year_built": 2022,
+        "price": {
+          "monthly_total": 700000,
+          "rent": 680000,
+          "management_fee": 20000,
+          "currency": "JPY"
+        },
+        "initial_cost_estimate": {
+          "first_month_rent": 700000,
+          "guarantor_service": 350000,
+          "fire_insurance": 23000,
+          "agency_fee": 680000,
+          "estimated_total": 1821000
+        },
+        "requirements": null,
+        "features": {
+          "unit": [
+            "Intercom",
+            "Air Conditioning",
+            "Toilet / Bathroom Separate",
+            "Range Type: Gas"
+          ],
+          "building": ["Autolock", "Parcel Locker"]
+        },
+        "images": {
+          "main": "https://apts.jp/system/property_image/image/2353628/property_image_01hfwy4v3yn4jdcqvm71nw772r.jpg",
+          "thumbnails": [
+            "https://apts.jp/system/property_image/image/2353645/property_image_01hq9pkd627an88hbgegtdeg6m.jpg",
+            "https://apts.jp/system/property_image/image/2353644/property_image_01hq9pkba90wagb78gyjsjjxpe.jpg",
+            "https://apts.jp/system/property_image/image/2353642/property_image_01hfwy893qbsmvckn9j2qefaa9.jpg",
+            "https://apts.jp/system/property_image/image/2353641/property_image_01hfwy7ze36r0wf9yrgsz82jb9.jpg",
+            "https://apts.jp/system/property_image/image/2353640/property_image_01hfwy7qvw7ynvdx3849psx03e.jpg",
+            "https://apts.jp/system/property_image/image/2353639/property_image_01hfwy7fd6c7aej2f8by7qepq7.jpg",
+            "https://apts.jp/system/property_image/image/2353638/property_image_01hfwy77qxxggq7kgzv2xnxn3p.jpg",
+            "https://apts.jp/system/property_image/image/2353632/property_image_01hfwy5n6q4fm4xepawev6a863.jpg",
+            "https://apts.jp/system/property_image/image/2353630/property_image_01hfwy5asedebr5qy6ja2jyd24.jpg",
+            "https://apts.jp/system/property_image/image/2353629/property_image_01hfwy56cpsqsrdkksy57439dt.jpg"
+          ],
+          "floorplan": "https://apts.jp/system/property_image/image/2353626/property_image_acd1ef27-9902-410b-839d-1c3b7174a3ff.jpg"
+        },
+        "unit_notes": null,
+        "unit_notes_amenities": [],
+        "bedrooms": null,
+        "balcony": null,
+        "nearest_stations": [
+          {
+            "station_name": "Omotesando Station",
+            "walk_time_min": 9,
+            "lines": []
+          },
+          {
+            "station_name": "Nogizaka Station",
+            "walk_time_min": 14,
+            "lines": []
+          }
+        ]
+      }
+    },
+    {
+      "property": {
+        "id": "163619",
+        "name": "Lumiec Bunkyo Sengoku #104",
+        "unit_number": "#104",
+        "building_id": "163453",
+        "address": {
+          "full": "3-10-17 Sengoku, Bunkyo-ku, Tokyo",
+          "latitude": 35.7254775,
+          "longitude": 139.7374805
+        },
+        "area": {
+          "m2": 45.99,
+          "ft2": 495.0,
+          "price_per_m2": 5327,
+          "price_per_ft2": 494
+        },
+        "type": "Apartment",
+        "floor": "1F  (of 5F)",
+        "contract": {
+          "length": "2 YearsStandard",
+          "type": "Standard"
+        },
+        "year_built": 2025,
+        "price": {
+          "monthly_total": 245000,
+          "rent": 215000,
+          "management_fee": 30000,
+          "currency": "JPY"
+        },
+        "initial_cost_estimate": {
+          "first_month_rent": 245000,
+          "guarantor_service": 122500,
+          "fire_insurance": 20000,
+          "agency_fee": 215000,
+          "estimated_total": 624000
+        },
+        "requirements": {
+          "japanese_required": true,
+          "note": "Due to guarantor company screening process, tenant must speak conversational Japanese for this rental (N3+), to pass the screening call.•Filter for \"Don't speak Japanese\" on our Rent search engine, if you don't speak Japanese."
+        },
+        "features": {
+          "unit": [
+            "Pet Friendly(+1 mo deposit)",
+            "Intercom",
+            "Air Conditioning",
+            "Toilet / Bathroom Separate",
+            "Range Type: IH"
+          ],
+          "building": ["Bicycle Storage", "Autolock", "Parcel Locker"]
+        },
+        "images": {
+          "main": "https://apts.jp/system/property_image/image/2376171/property_image_01jaq74tsxxbtkpkjgst3972sn.jpg",
+          "thumbnails": [
+            "https://apts.jp/system/property_image/image/2376165/property_image_01jaq74tde0njwkmkn54v9c1qf.jpg",
+            "https://apts.jp/system/property_image/image/2376166/property_image_01jaq74tb6f4rkahf651yhnch5.jpg",
+            "https://apts.jp/system/property_image/image/2376168/property_image_01jaq74tk7c5wdnvscn7tysav5.jpg",
+            "https://apts.jp/system/property_image/image/2376169/property_image_01jaq74tgcwahbg476ptp1wzr2.jpg",
+            "https://apts.jp/system/property_image/image/2376170/property_image_01jaq74tr47ngkvjkctxn5vrdt.jpg",
+            "https://apts.jp/system/property_image/image/2376167/property_image_01jaq74tp40z7xjnxwjd5eywee.jpg",
+            "https://apts.jp/system/property_image/image/2270556/1.jpg",
+            "https://apts.jp/system/property_image/image/2270557/2.jpg"
+          ],
+          "floorplan": "https://apts.jp/system/property_image/image/2376164/property_image_01hxjk68nqy7zj3bqgazk93e6w.jpg"
+        },
+        "unit_notes": null,
+        "unit_notes_amenities": [],
+        "bedrooms": null,
+        "balcony": null,
+        "nearest_stations": [
+          {
+            "station_name": "Sengoku Station",
+            "walk_time_min": 11,
+            "lines": []
+          },
+          {
+            "station_name": "Shin Otsuka Station",
+            "walk_time_min": 15,
+            "lines": []
+          }
+        ]
+      }
+    },
+    {
+      "property": {
+        "id": "176782",
+        "name": "RUMIX Chitosefunabashi #102",
+        "unit_number": "#102",
+        "building_id": "163457",
+        "address": {
+          "full": "2-3-7 Funabashi, Setagaya-ku, Tokyo",
+          "latitude": 35.6510967,
+          "longitude": 139.6246488
+        },
+        "area": {
+          "m2": 31.98,
+          "ft2": 344.0,
+          "price_per_m2": 5941,
+          "price_per_ft2": 552
+        },
+        "type": "Apartment",
+        "floor": "1F  (of 5F)",
+        "contract": {
+          "length": "2 YearsStandard",
+          "type": "Standard"
+        },
+        "year_built": 2024,
+        "price": {
+          "monthly_total": 190000,
+          "rent": 160000,
+          "management_fee": 30000,
+          "currency": "JPY"
+        },
+        "initial_cost_estimate": {
+          "first_month_rent": 190000,
+          "guarantor_service": 95000,
+          "fire_insurance": 20000,
+          "agency_fee": 160000,
+          "estimated_total": 481000
+        },
+        "requirements": null,
+        "features": {
+          "unit": [
+            "Pet Friendly(+1 mo deposit)",
+            "Intercom",
+            "Air Conditioning",
+            "Toilet / Bathroom Separate"
+          ],
+          "building": ["Bicycle Storage", "Autolock", "Parcel Locker"]
+        },
+        "images": {
+          "main": "https://apts.jp/system/property_image/image/2349907/property_image_01j0a8cg4mrpsh5w959dkhvqjt.jpg",
+          "thumbnails": [
+            "https://apts.jp/system/property_image/image/2349909/property_image_01j0a8cgbdafrc1dr2ezsnmn6r.jpg",
+            "https://apts.jp/system/property_image/image/2349910/property_image_01j0a8cg4g4z0vkfqxzp6mf05g.jpg",
+            "https://apts.jp/system/property_image/image/2349906/property_image_01j0a8cg88h307a9fqnhm9g5mn.jpg",
+            "https://apts.jp/system/property_image/image/2349908/property_image_01j0a8cg415vj0wcedfqtrag9s.jpg",
+            "https://apts.jp/system/property_image/image/2349911/property_image_01j0a8cg5an6ts7h397mf8019q.jpg",
+            "https://apts.jp/system/property_image/image/2349912/property_image_01j0a8cg821y2315esdy60xfnf.jpg",
+            "https://apts.jp/system/property_image/image/2349904/property_image_01j0a8cfwh0250ydwzj71hzdfe.jpg",
+            "https://apts.jp/system/property_image/image/2349905/property_image_01j0a8cfwv4ee24dc1e2ywvkka.jpg",
+            "https://apts.jp/system/property_image/image/2167047/property_image_01j4tk1r822dpmz1jsf2y74krx.jpg",
+            "https://apts.jp/system/property_image/image/2167033/property_image_01j0ab1yv9anam1c9ztcyvjbhb.jpg"
+          ],
+          "floorplan": "https://apts.jp/system/property_image/image/2349902/property_image_01j0a8wfqwj5h14fmrz2yfb51g.jpg"
+        },
+        "unit_notes": null,
+        "unit_notes_amenities": [],
+        "bedrooms": null,
+        "balcony": null,
+        "nearest_stations": [
+          {
+            "station_name": "Chitose Funabashi Station",
+            "walk_time_min": 6,
+            "lines": []
+          }
+        ]
+      }
+    }
+  ]
+}
