@@ -3,6 +3,7 @@ pydantic
 qdrant-client
 openai
 python-dotenv
+loguru
 click
 
 # Standard library modules used:
