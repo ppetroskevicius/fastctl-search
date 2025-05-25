@@ -30,7 +30,7 @@ openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 COLLECTION_NAME = "real_estate"
 
 # Batch sizes
-OPENAI_BATCH_SIZE = 10  # Number of texts per OpenAI embedding request
+OPENAI_BATCH_SIZE = 50  # Number of texts per OpenAI embedding request
 QDRANT_BATCH_SIZE = 100  # Number of points per Qdrant upsert request
 
 def parse_floor(floor: str) -> Optional[int]:
@@ -124,13 +124,33 @@ try:
         "status",
         "short_term_duration",
         "amenities",
+        "pet_friendly",
+        "japanese_required",
     ]:
         qdrant_client.create_payload_index(
             collection_name=COLLECTION_NAME,
             field_name=field,
             field_schema=PayloadSchemaType.KEYWORD
         )
-    logger.info("Created keyword indexes for filtering fields")
+
+    # Create numeric indexes for range filtering
+    for field in [
+        "monthly_total",
+        "total",
+        "short_term_monthly_total",
+        "area_m2",
+        "year_built",
+        "floor_number",
+        "management_fee",
+        "guarantor_service",
+        "fire_insurance",
+    ]:
+        qdrant_client.create_payload_index(
+            collection_name=COLLECTION_NAME,
+            field_name=field,
+            field_schema=PayloadSchemaType.FLOAT
+        )
+    logger.info("Created keyword and numeric indexes for filtering fields")
 except Exception as e:
     logger.error(f"Failed to create Qdrant collection or indexes: {e}")
     raise
