@@ -1,0 +1,290 @@
+{
+    "properties": [
+        {
+            "id": 148588,
+            "url": "https://apts.jp/monthly-rentals/148588-city-tower-shirokane-1703",
+            "property_type": "Short-Term",
+            "name": "City Tower Shirokane #1703",
+            "unit_number": "#1703",
+            "address": {
+                "full": "6-5-2 Shirokane, Minato, Tokyo",
+                "latitude": 35.6444482,
+                "longitude": 139.7245356
+            },
+            "area": {
+                "m2": 76.0,
+                "ft2": 818.0,
+                "price_per_m2": 8684,
+                "price_per_ft2": 806
+            },
+            "type": "Monthly Rental",
+            "floor": "17F (of 19F)",
+            "contract": {
+                "length": "AskFixed",
+                "type": "Fixed"
+            },
+            "year_built": 2017,
+            "price": {
+                "monthly_total": 660000,
+                "rent": 640000,
+                "management_fee": 20000,
+                "currency": "JPY",
+                "short_term_monthly_total": 820000,
+                "short_term_rent": 800000,
+                "short_term_management_fee": 20000,
+                "long_term_duration": "3+ months",
+                "short_term_duration": "Less than 3 months"
+            },
+            "features": {
+                "unit": [
+                    "Furnished",
+                    "Security system for each unit",
+                    "Intercom",
+                    "Air Conditioning",
+                    "Floor Heating",
+                    "Walk-in Closet",
+                    "Washlet Toilet",
+                    "Toilet / Bathroom Separate",
+                    "Washer & Dryer",
+                    "Range Type: IH",
+                    "Dishwasher",
+                    "Refrigerator",
+                    "Disposer",
+                    "Balcony",
+                    "Free Internet"
+                ],
+                "building": [
+                    "Autolock",
+                    "On-site Garbage Room",
+                    "Community-wide WiFi"
+                ]
+            },
+            "images": {
+                "main": "https://apts.jp/system/property_image/image/1955012/1.JPG",
+                "thumbnails": [
+                    "https://apts.jp/system/property_image/image/1955018/4.JPG",
+                    "https://apts.jp/system/property_image/image/1955014/5.JPG",
+                    "https://apts.jp/system/property_image/image/1955016/6.JPG",
+                    "https://apts.jp/system/property_image/image/1955008/7.jpeg",
+                    "https://apts.jp/system/property_image/image/1955015/013.JPG",
+                    "https://apts.jp/system/property_image/image/1955019/16.JPG",
+                    "https://apts.jp/system/property_image/image/1955011/15.JPG",
+                    "https://apts.jp/system/property_image/image/1975497/City-Tower-Shirokane-closet.jpg",
+                    "https://apts.jp/system/property_image/image/1955021/19.png",
+                    "https://apts.jp/system/property_image/image/1955022/20.png"
+                ],
+                "floorplan": "https://apts.jp/system/property_image/image/1958095/Floor_Plan.jpg"
+            },
+            "unit_notes": "Unit Notes Fully furnished luxury apartment in Tokyo available for monthly rentals. 🏙️ Dive into Tokyo’s vibrant city center from this luxurious 17th-floor 2BR apartment, nestled in Shirokane, near Hiroo and Ebisu station! Indulge in a culinary paradise surrounded by charming cafes and 4 Michelin-starred restaurants. Ideal for up to 3 guests, this property is a gateway to Tokyo’s wonders. Located 12-minutes from Hiroo station by foot, the neighborhood is known for foreign embassies, beautiful streets and a wealth of cultural opportunities. From here, you can be in Tokyo's best places, including Roppongi, Shibuya and Ebisu, within 15 minutes - making it easy to uncover the essence of Tokyo! 🌟 ➡️ Amenities include; Optical WiFi (400+ MB up/down) / Washer + dryer/ Dishwasher/ Hair dryer/ Curling iron/ Nespresso Machine / TV with Netflix and Amazon Prime accounts/ Electric Kettle/ Microwave/ AC+ Heater / Rice Cooker/ Fridge/ IH stove/ Toaster/ fully equipped kitchen with plates, glasses, cups, cutlery/ Vacuum cleaner/ Humidifier/ Iron ➡️ Bedrooms Bedroom 1: 1 Queen bed + desk + walk-in closet Bedroom 2: 1 sofa / bed + 1 standing desk (perfect as a home office or guest room) ➡️ Balcony Grab coffee or tea and enjoy the view with enough space for relaxation high above one of Tokyo's popular neighborhoods",
+            "unit_notes_amenities": [
+                "Optical WiFi (400+ MB up",
+                "down)",
+                "Washer + dryer",
+                "Dishwasher",
+                "Hair dryer",
+                "Curling iron",
+                "Nespresso Machine",
+                "TV with Netflix and Amazon Prime accounts",
+                "Electric Kettle",
+                "Microwave",
+                "AC+ Heater",
+                "Rice Cooker",
+                "Fridge",
+                "IH stove",
+                "Toaster",
+                "fully equipped kitchen with plates",
+                "glasses",
+                "cups",
+                "cutlery",
+                "Vacuum cleaner",
+                "Humidifier",
+                "Iron"
+            ],
+            "bedrooms": "Bedroom 1: 1 Queen bed + desk + walk-in closet Bedroom 2: 1 sofa / bed + 1 standing desk (perfect as a home office or guest room)",
+            "balcony": "Grab coffee or tea and enjoy the view with enough space for relaxation high above one of Tokyo's popular neighborhoods",
+            "nearest_stations": [
+                {
+                    "station_name": "Hiroo Station",
+                    "walk_time_min": 12,
+                    "lines": [
+                        {
+                            "company": "Tokyo Metro",
+                            "name": "Hibiya Line"
+                        }
+                    ]
+                },
+                {
+                    "station_name": "Shirokane Takanawa Station",
+                    "walk_time_min": 13,
+                    "lines": [
+                        {
+                            "company": "Toei",
+                            "name": "Mita Line"
+                        },
+                        {
+                            "company": "Tokyo Metro",
+                            "name": "Namboku Line"
+                        }
+                    ]
+                },
+                {
+                    "station_name": "Shirokanedai Station",
+                    "walk_time_min": 14,
+                    "lines": [
+                        {
+                            "company": "Toei",
+                            "name": "Mita Line"
+                        },
+                        {
+                            "company": "Tokyo Metro",
+                            "name": "Namboku Line"
+                        }
+                    ]
+                },
+                {
+                    "station_name": "Ebisu Station",
+                    "walk_time_min": 18,
+                    "lines": [
+                        {
+                            "company": "JR",
+                            "name": "Saikyo Line"
+                        },
+                        {
+                            "company": "JR",
+                            "name": "Shonan Shinjuku Line"
+                        },
+                        {
+                            "company": "JR",
+                            "name": "Yamanote Line"
+                        },
+                        {
+                            "company": "Tokyo Metro",
+                            "name": "Hibiya Line"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 176730,
+            "url": "https://apts.jp/monthly-rentals/176730-machiya-1-chome-house",
+            "property_type": "Short-Term",
+            "name": "Machiya 1-chome House",
+            "address": {
+                "full": "1-33-33 Machiya, Arakawa-ku, Tokyo",
+                "latitude": 35.7456755,
+                "longitude": 139.7858173
+            },
+            "area": {
+                "m2": 39.66,
+                "ft2": 427.0,
+                "price_per_m2": 4097,
+                "price_per_ft2": 380
+            },
+            "type": "Monthly Rental",
+            "contract": {
+                "length": "AskMonthly",
+                "type": "Monthly"
+            },
+            "year_built": 1968,
+            "price": {
+                "monthly_total": 162500,
+                "rent": 162500,
+                "currency": "JPY",
+                "short_term_monthly_total": 195000,
+                "short_term_rent": 195000
+            },
+            "features": {
+                "unit": [
+                    "Furnished",
+                    "Air Conditioning",
+                    "Washlet Toilet",
+                    "Toilet / Bathroom Separate",
+                    "Washer In-Unit",
+                    "Range Type: Gas",
+                    "Refrigerator",
+                    "Free Internet"
+                ]
+            },
+            "images": {
+                "main": "https://apts.jp/system/property_image/image/2349397/1f-living-02.jpg",
+                "thumbnails": [
+                    "https://apts.jp/system/property_image/image/2349395/1f-living-01.jpg",
+                    "https://apts.jp/system/property_image/image/2349402/1f-living-03.jpg",
+                    "https://apts.jp/system/property_image/image/2349391/2f-bedroom1-01.jpg",
+                    "https://apts.jp/system/property_image/image/2349398/2f-bedroom1-02.jpg",
+                    "https://apts.jp/system/property_image/image/2349399/2f-bedroom2-01.jpg",
+                    "https://apts.jp/system/property_image/image/2349406/2f-bedroom2-02.jpg",
+                    "https://apts.jp/system/property_image/image/2349392/2f-toilet-room.jpg",
+                    "https://apts.jp/system/property_image/image/2349396/1f-kitchen-02.jpg",
+                    "https://apts.jp/system/property_image/image/2349404/1f-shower-room.jpg",
+                    "https://apts.jp/system/property_image/image/2349405/1f-kitchen-01.jpg"
+                ],
+                "floorplan": "https://apts.jp/system/property_image/image/2349408/00-fp.jpg"
+            },
+            "nearest_stations": [
+                {
+                    "station_name": "Arakawa nanachome Station",
+                    "walk_time_min": 7,
+                    "lines": [
+                        {
+                            "company": "Toden",
+                            "name": "Arakawa Line"
+                        }
+                    ]
+                },
+                {
+                    "station_name": "Machiya Ekimae Station",
+                    "walk_time_min": 9,
+                    "lines": [
+                        {
+                            "company": "Toden",
+                            "name": "Arakawa Line"
+                        }
+                    ]
+                },
+                {
+                    "station_name": "Machiya Station",
+                    "walk_time_min": 10,
+                    "lines": [
+                        {
+                            "company": "Keisei",
+                            "name": "Keisei Line"
+                        },
+                        {
+                            "company": "Tokyo Metro",
+                            "name": "Chiyoda Line"
+                        }
+                    ]
+                },
+                {
+                    "station_name": "Arakawa nichome Station",
+                    "walk_time_min": 12,
+                    "lines": [
+                        {
+                            "company": "Toden",
+                            "name": "Arakawa Line"
+                        }
+                    ]
+                },
+                {
+                    "station_name": "Machiya nichome Station",
+                    "walk_time_min": 12,
+                    "lines": [
+                        {
+                            "company": "Toden",
+                            "name": "Arakawa Line"
+                        }
+                    ]
+                }
+            ],
+            "building_notes": {
+                "summary": "Renovated and fully furnished older Tokyo Townhouse!",
+                "description": "All utilities and internet included.",
+                "facilities": {
+                    "* Actual building construction date unknown (no known records available)": []
+                }
+            }
+        }
+    ]
+}

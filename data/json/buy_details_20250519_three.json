@@ -1,0 +1,261 @@
+{
+    "properties": [
+        {
+            "id": 1668,
+            "url": "https://apts.jp/buy/properties/pr89199537-proud-tower-hirai-26th-floor",
+            "property_type": "Buy",
+            "name": "PROUD Tower Hirai 26th floor",
+            "address": {
+                "full": "Hirai 5, Edogawa-ku, Tokyo",
+                "latitude": 35.6729954,
+                "longitude": 139.7381832
+            },
+            "layout": "3LDK",
+            "area": {
+                "m2": 72.08
+            },
+            "price": {
+                "total": 123000000,
+                "currency": "JPY"
+            },
+            "status": "Available",
+            "listing_id": "pr89199537",
+            "last_updated": "2025-04-17",
+            "images": {
+                "main": "https://apts.jp/system/property_image/image/2329954/002.jpg",
+                "thumbnails": [
+                    "https://apts.jp/system/property_image/image/2329955/003.jpg",
+                    "https://apts.jp/system/property_image/image/2329956/004.jpg",
+                    "https://apts.jp/system/property_image/image/2329957/005.jpg",
+                    "https://apts.jp/system/property_image/image/2329959/005b.jpg",
+                    "https://apts.jp/system/property_image/image/2329960/006.jpg",
+                    "https://apts.jp/system/property_image/image/2329961/007.jpg",
+                    "https://apts.jp/system/property_image/image/2329962/008.jpg",
+                    "https://apts.jp/system/property_image/image/2329963/009.jpg",
+                    "https://apts.jp/system/property_image/image/2329964/010.jpg",
+                    "https://apts.jp/system/property_image/image/2329965/011.jpg"
+                ],
+                "floorplan": "https://apts.jp/system/property_image/image/2331481/Floorplan_simple_eng.png"
+            },
+            "type": "Apartment",
+            "details": {
+                "layout": "3LDK",
+                "balcony_direction": "North-east",
+                "floor": "26F",
+                "land_rights": "Freehold",
+                "transaction_type": "Broker"
+            },
+            "building": {
+                "structure": "Reinforced Concrete",
+                "year_built": 2025,
+                "total_floors": 29
+            },
+            "amenities": [
+                "Parking",
+                "Earthquake Resistance",
+                "Delivery Box",
+                "High-speed Internet",
+                "Security",
+                "Autolock",
+                "Washlet Toilet"
+            ],
+            "additional_info": "A redefinition of premium living in Tokyo - we are in love! Right upon entering the apartment, we feel the sense of picturesque Tokyo living, especially when stepping onto the 26th floor balcony to enjoy the view of Arakawa river, and the stream of white and red lights, flowing in parallel like a quiet stream on top of the elevated Shutokou City Highway in the distance.",
+            "nearest_stations": [
+                {
+                    "station_name": "Hirai Station",
+                    "walk_time_min": 1,
+                    "lines": [
+                        {
+                            "company": "JR",
+                            "name": "Chuo-Sobu Line"
+                        }
+                    ]
+                },
+                {
+                    "station_name": "Higashi Azuma Station",
+                    "walk_time_min": 12,
+                    "lines": [
+                        {
+                            "company": "Tobu",
+                            "name": "Kameido Line"
+                        }
+                    ]
+                },
+                {
+                    "station_name": "Kameido Suijin Station",
+                    "walk_time_min": 14,
+                    "lines": [
+                        {
+                            "company": "Tobu",
+                            "name": "Kameido Line"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 466,
+            "url": "https://apts.jp/buy/properties/pr65654999-grand-briller-yokohama-yamashitakoen-room-1010",
+            "property_type": "Buy",
+            "name": "Grand Briller Yokohama Yamashitakoen Room 1010",
+            "address": {
+                "full": "Yamashita-cho 12, Yokohama-shi-naka-ku, Kanagawa",
+                "latitude": 35.6729954,
+                "longitude": 139.7381832
+            },
+            "layout": "3 BR 2 WIC",
+            "area": {
+                "m2": 133.65
+            },
+            "price": {
+                "total": 368000000,
+                "currency": "JPY"
+            },
+            "status": "Available",
+            "listing_id": "pr65654999",
+            "last_updated": "2025-04-11",
+            "images": {
+                "main": "https://apts.jp/system/property_image/image/2209486/Living_Dining.jpg",
+                "thumbnails": [
+                    "https://apts.jp/system/property_image/image/2209487/Living_Room_1.jpg",
+                    "https://apts.jp/system/property_image/image/2209488/Living_Room_2.jpg",
+                    "https://apts.jp/system/property_image/image/2209489/Dining_Room.jpg",
+                    "https://apts.jp/system/property_image/image/2209490/Dining_Room_2.jpg",
+                    "https://apts.jp/system/property_image/image/2209496/Kitchen_3.jpg",
+                    "https://apts.jp/system/property_image/image/2209491/Dining_Room_3.jpg",
+                    "https://apts.jp/system/property_image/image/2209495/Kitchen_2.jpg",
+                    "https://apts.jp/system/property_image/image/2209494/Kitchen_1.jpg",
+                    "https://apts.jp/system/property_image/image/2209492/Bathroom_1.jpg",
+                    "https://apts.jp/system/property_image/image/2209493/Bathroom_2.jpg"
+                ],
+                "floorplan": "https://apts.jp/system/property_image/image/1667870/grand-briller-yokohama-yamashitakoen_floorplan2.png"
+            },
+            "type": "Apartment",
+            "details": {
+                "layout": "3 BR 2 WIC",
+                "balcony_direction": "North",
+                "floor": "10F",
+                "management_fee": 46070,
+                "repair_reserve_fund": 23170,
+                "land_rights": "Freehold",
+                "transaction_type": "Exclusive Broker"
+            },
+            "building": {
+                "structure": "SRC",
+                "year_built": 2003,
+                "total_units": 166,
+                "total_floors": 10
+            },
+            "amenities": [
+                "Pet Negotiable",
+                "Parking",
+                "Earthquake Resistance",
+                "Delivery Box",
+                "High-speed Internet",
+                "Air Conditioning",
+                "Security",
+                "Autolock",
+                "Washlet Toilet"
+            ],
+            "additional_info": "Grand Briller Yokohama Yamashita Park",
+            "nearest_stations": [
+                {
+                    "station_name": "Motomachi Chukagai Station",
+                    "walk_time_min": 4,
+                    "lines": [
+                        {
+                            "name": "Minato Mirai Line"
+                        }
+                    ]
+                },
+                {
+                    "station_name": "Nihon Odori Station",
+                    "walk_time_min": 12,
+                    "lines": [
+                        {
+                            "name": "Minato Mirai Line"
+                        }
+                    ]
+                },
+                {
+                    "station_name": "Ishikawacho Station",
+                    "walk_time_min": 15,
+                    "lines": [
+                        {
+                            "company": "JR",
+                            "name": "Keihin-Tohoku Line"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 842,
+            "url": "https://apts.jp/buy/properties/pr87771476-hayama-villa",
+            "property_type": "Buy",
+            "name": "Hayama Villa",
+            "address": {
+                "full": "Shimoyamaguchi , Miura-shi, Kanagawa",
+                "latitude": 35.6729954,
+                "longitude": 139.7381832
+            },
+            "layout": "3 Bedrooms",
+            "area": {
+                "m2": 224.4
+            },
+            "price": {
+                "total": 390000000,
+                "currency": "JPY"
+            },
+            "status": "Available",
+            "listing_id": "pr87771476",
+            "last_updated": "2025-04-11",
+            "images": {
+                "main": "https://apts.jp/system/property_image/image/1870197/01-DSC02591-HDR.jpg",
+                "thumbnails": [
+                    "https://apts.jp/system/property_image/image/1870199/03-DSC02625-HDR.jpg",
+                    "https://apts.jp/system/property_image/image/1870200/04-DSC02609-HDR.jpg",
+                    "https://apts.jp/system/property_image/image/1870201/05-DSC02610.jpg",
+                    "https://apts.jp/system/property_image/image/1870202/06-DSC02622-HDR.jpg",
+                    "https://apts.jp/system/property_image/image/1870203/07-DSC02597-HDR.jpg",
+                    "https://apts.jp/system/property_image/image/1870204/08-DSC02670-HDR.jpg",
+                    "https://apts.jp/system/property_image/image/1870205/09-DSC02574-HDR.jpg",
+                    "https://apts.jp/system/property_image/image/1870206/10-DSC02579-HDR.jpg",
+                    "https://apts.jp/system/property_image/image/1870207/11-DSC02652-HDR.jpg",
+                    "https://apts.jp/system/property_image/image/1870208/12-DSC02664-HDR.jpg"
+                ],
+                "floorplan": "/assets/no--floorplan-image-abe6bdd8c8afb604f861b163b854e1a43999ca0ae05662b52d3c3fba4ab2ea07.png"
+            },
+            "type": "House",
+            "details": {
+                "layout": "3 Bedrooms",
+                "balcony_direction": "West",
+                "floor": "224.4 m2",
+                "land_rights": "Freehold",
+                "transaction_type": "Broker"
+            },
+            "building": {
+                "structure": "Reinforced Concrete",
+                "year_built": 2010
+            },
+            "amenities": [
+                "Pet Negotiable",
+                "Parking",
+                "Earthquake Resistance",
+                "Delivery Box",
+                "High-speed Internet",
+                "Washer & Dryer",
+                "Air Conditioning",
+                "Security",
+                "Washlet Toilet"
+            ],
+            "nearest_stations": [
+                {
+                    "station_name": "Zushi Station",
+                    "walk_time_min": 5,
+                    "lines": []
+                }
+            ]
+        }
+    ]
+}
