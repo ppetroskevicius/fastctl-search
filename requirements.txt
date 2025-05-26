@@ -5,6 +5,8 @@ openai
 python-dotenv
 loguru
 click
+jsonschema
+genson
 
 # Standard library modules used:
 # - json
