@@ -13,6 +13,10 @@ import time
 
 load_dotenv()
 
+# Configuration for testing mode
+TEST_MODE = True  # Set to False for processing all properties
+TEST_PROPERTIES_PER_TYPE = 20  # Number of properties to process per type when TEST_MODE is True
+
 # Initialize clients
 qdrant_url = os.getenv("QDRANT_URL")
 qdrant_api_key = os.getenv("QDRANT_API_KEY")
@@ -89,6 +93,14 @@ def preprocess_raw_data(raw_data: Dict, json_file: str) -> Dict:
             del prop["features"]
 
     return raw_data
+
+def limit_properties_for_testing(properties: List[Property], property_type: str) -> List[Property]:
+    """Limit the number of properties for testing purposes."""
+    if not TEST_MODE:
+        return properties
+    
+    logger.info(f"TEST MODE: Limiting {property_type} properties to {TEST_PROPERTIES_PER_TYPE}")
+    return properties[:TEST_PROPERTIES_PER_TYPE]
 
 # JSON files to process
 json_files = [
@@ -176,7 +188,18 @@ for json_file in json_files:
     # Validate with Pydantic
     try:
         properties_data = Properties(**raw_data)
-        properties = properties_data.properties
+        
+        # Determine property type from filename
+        property_type = "Unknown"
+        if "rent_details" in json_file:
+            property_type = "Rent"
+        elif "buy_details" in json_file:
+            property_type = "Buy"
+        elif "short_term_details" in json_file:
+            property_type = "Short Term"
+            
+        # Limit properties if in test mode
+        properties = limit_properties_for_testing(properties_data.properties, property_type)
         total_properties += len(properties)
         logger.info(f"Validated {len(properties)} properties from {json_file}")
     except Exception as e:
