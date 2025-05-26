@@ -1,0 +1,481 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Field type: integer. Required field across all property types. Example: 177020"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Field type: string. Required field across all property types."
+    },
+    "property_type": {
+      "type": "string",
+      "description": "Field type: string. Required field across all property types. Example: Rent"
+    },
+    "name": {
+      "type": "string",
+      "description": "Field type: string. Required field across all property types. Example: GrandStory Nishiazabu #303"
+    },
+    "unit_number": {
+      "type": "string",
+      "description": "Field type: string. Example: #303"
+    },
+    "building_id": {
+      "type": "string",
+      "description": "Field type: integer. Example: 160694"
+    },
+    "address": {
+      "type": "object",
+      "properties": {
+        "full": {
+          "type": "string",
+          "description": "Field type: string. Example: 2-20-11 Nishiazabu, Minato-ku, Tokyo"
+        },
+        "latitude": {
+          "type": "number",
+          "description": "Field type: number. Example: 35.6617691"
+        },
+        "longitude": {
+          "type": "number",
+          "description": "Field type: number. Example: 139.7191087"
+        }
+      },
+      "required": [
+        "full",
+        "latitude",
+        "longitude"
+      ],
+      "description": "Field type: . Required field across all property types."
+    },
+    "area": {
+      "type": "object",
+      "properties": {
+        "m2": {
+          "type": "number",
+          "description": "Field type: number. Example: 94.21"
+        },
+        "ft2": {
+          "type": "number",
+          "description": "Field type: number. Example: 1014.0"
+        },
+        "price_per_m2": {
+          "type": "integer",
+          "description": "Field type: integer. Example: 7430"
+        },
+        "price_per_ft2": {
+          "type": "integer",
+          "description": "Field type: integer. Example: 690"
+        }
+      },
+      "required": [
+        "ft2",
+        "m2",
+        "price_per_ft2",
+        "price_per_m2"
+      ],
+      "description": "Field type: . Required field across all property types."
+    },
+    "type": {
+      "type": "string",
+      "description": "Field type: string. Required field across all property types. Possible values: Apartment, House. Example: Apartment",
+      "enum": [
+        "Apartment",
+        "Building with tenants",
+        "Home with tenant",
+        "House",
+        "Land",
+        "Monthly Rental",
+        "Office / Store"
+      ]
+    },
+    "floor": {
+      "type": "string",
+      "description": "Field type: string. Example: 3F (of 0F)"
+    },
+    "contract": {
+      "type": "object",
+      "properties": {
+        "length": {
+          "type": "string",
+          "description": "Field type: string. Possible values: 1 YearStandard, 2 YearsFixed, 2 YearsStandard, 3 YearsFixed, 5 YearsFixed, AskFixed, Fixed, Standard. Example: 2 YearsStandard",
+          "enum": [
+            "-2017 YearsFixed",
+            "1 YearFixed",
+            "1 YearStandard",
+            "2 YearsFixed",
+            "2 YearsStandard",
+            "2028 YearsFixed",
+            "3 YearsFixed",
+            "4 YearsFixed",
+            "5 YearsFixed",
+            "AskFixed",
+            "AskMonthly",
+            "Fixed",
+            "Standard"
+          ]
+        },
+        "type": {
+          "type": "string",
+          "description": "Field type: string. Possible values: Fixed, Standard. Example: Standard",
+          "enum": [
+            "Fixed",
+            "Monthly",
+            "Standard"
+          ]
+        }
+      },
+      "required": [
+        "length",
+        "type"
+      ],
+      "description": "Field type: ."
+    },
+    "year_built": {
+      "type": "integer",
+      "description": "Field type: integer. Range: 1963 to 2025. Example: 2022",
+      "minimum": 1963,
+      "maximum": 2025
+    },
+    "price": {
+      "type": "object",
+      "properties": {
+        "monthly_total": {
+          "type": "integer",
+          "description": "Field type: integer. Example: 700000"
+        },
+        "rent": {
+          "type": "integer",
+          "description": "Field type: integer. Example: 680000"
+        },
+        "management_fee": {
+          "type": "integer",
+          "description": "Field type: integer. Range: 1,000 to 50,000 JPY per month. Example: 20000",
+          "minimum": 1000,
+          "maximum": 50000
+        },
+        "currency": {
+          "type": "string",
+          "description": "Field type: string. Possible values: JPY. Example: JPY",
+          "enum": [
+            "JPY"
+          ]
+        }
+      },
+      "required": [
+        "currency",
+        "monthly_total",
+        "rent"
+      ],
+      "description": "Field type: . Required field across all property types."
+    },
+    "initial_cost_estimate": {
+      "type": "object",
+      "properties": {
+        "first_month_rent": {
+          "type": "integer",
+          "description": "Field type: integer. Example: 700000"
+        },
+        "guarantor_service": {
+          "type": "integer",
+          "description": "Field type: integer. Example: 350000"
+        },
+        "fire_insurance": {
+          "type": "integer",
+          "description": "Field type: integer. Range: 10,000 to 40,000 JPY per year. Example: 23000",
+          "minimum": 10000,
+          "maximum": 40000
+        },
+        "agency_fee": {
+          "type": "integer",
+          "description": "Field type: integer or string. Example: 680000"
+        },
+        "estimated_total": {
+          "type": "integer",
+          "description": "Field type: integer. Example: 1821000"
+        }
+      },
+      "required": [
+        "agency_fee",
+        "estimated_total",
+        "first_month_rent",
+        "guarantor_service"
+      ],
+      "description": "Field type: . Required field for rent properties."
+    },
+    "features": {
+      "type": "object",
+      "properties": {
+        "unit": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Air Conditioning",
+              "Balcony",
+              "Dishwasher",
+              "Disposer",
+              "Floor Heating",
+              "Free Internet",
+              "Fully Furnished",
+              "Furnished",
+              "Intercom",
+              "Loft",
+              "Oven",
+              "Pet Friendly(+1 mo deposit)",
+              "Pet Friendly(+2 mo deposit)",
+              "Pet Friendly(+\u00a5100.000 Deposit)",
+              "Range Type: Electric",
+              "Range Type: Gas",
+              "Range Type: IH",
+              "Refrigerator",
+              "Security system for each unit",
+              "Tatami Room",
+              "Toilet / Bathroom Separate",
+              "Walk-in Closet",
+              "Washer & Dryer",
+              "Washer In-Unit",
+              "Washlet Toilet"
+            ]
+          },
+          "description": "Field type: ."
+        },
+        "building": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Field type: ."
+        }
+      },
+      "description": "Field type: ."
+    },
+    "images": {
+      "type": "object",
+      "properties": {
+        "main": {
+          "type": "string",
+          "description": "Field type: string."
+        },
+        "thumbnails": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Field type: ."
+        },
+        "floorplan": {
+          "type": "string",
+          "description": "Field type: string."
+        }
+      },
+      "required": [
+        "floorplan",
+        "main"
+      ],
+      "description": "Field type: . Required field across all property types."
+    },
+    "nearest_stations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "station_name": {
+            "type": "string",
+            "description": "Field type: string. Format: Usually a station name followed by 'Station', but can also be other location references. Example: Omotesando Station"
+          },
+          "walk_time_min": {
+            "type": "integer",
+            "description": "Field type: integer. Range: 0 to 33 minutes. Example: 9",
+            "minimum": 0,
+            "maximum": 33
+          },
+          "lines": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "company": {
+                  "type": "string",
+                  "description": "Field type: string. Possible values: JR, Keikyu, Keio, Keisei, Metropolitan Intercity Railway, Odakyu, SR, Seibu, TWR, Tobu, Toden, Toei, Tokyo Metro, Tokyo Monorail, Tokyu. Example: Tokyo Metro",
+                  "enum": [
+                    "JR",
+                    "Keikyu",
+                    "Keio",
+                    "Keisei",
+                    "Metropolitan Intercity Railway",
+                    "Odakyu",
+                    "SR",
+                    "Seibu",
+                    "Sotetsu",
+                    "TWR",
+                    "Tobu",
+                    "Toden",
+                    "Toei",
+                    "Tokyo Metro",
+                    "Tokyo Monorail",
+                    "Tokyu"
+                  ]
+                },
+                "name": {
+                  "type": "string",
+                  "description": "Field type: string. Possible values: Airport Line, Arakawa Line, Asakusa Line, Chiyoda Branch Line, Chiyoda Line, Chuo Line, Chuo-Sobu Line, Daishi Line, Den-en-toshi Line, Enoshima Line, Fukutoshin Line, Ginza Line, Hanzomon Line, Hibiya Line, Hokuso Line, Ikebukuro Line, Ikegami Line, Inokashira Line, Isesaki Extension Line, Joban Express Line, Joban Local Line, Kameido Line, Kanamachi Line, Keihin-Tohoku Line, Keikyu Line, Keio Line, Keisei Line, Keiyo Line, Kokubunji Line, Marunouchi Branch Line, Marunouchi Line, Meguro Line, Mita Line, Namboku Line, Nambu Line, Narita Express, New Line, Nippori-Toneri Liner, Odawara Line, Oedo Line, Oimachi Line, Ome Line, Oshiage Line, Rinkai Line, Sagamihara Line, Saikyo Line, Saitama Rapid Railway Line, Seibu Shinjuku Line, Setagaya Line, Shonan Shinjuku Line, Skyliner, Skytree Line, Sobu Line (Rapid), Sotetsu Line, Takasaki Line, Tama Monorail, Tamagawa Line, Tamako Line, Toei Shinjuku Line, Tojo Line, Tokaido Main Line, Tokyo Monorail, Toshima Line, Toyoko Line, Tozai Line, Tsukuba Express Line, Utsunomiya Line, Yamanote Line, Yokohama Line, Yokohama Subway Blue Line, Yokosuka Line, Yurakucho Line, Yurakucho Line (Seibu), Yurikamome Line. Example: Chiyoda Line",
+                  "enum": [
+                    "Airport Line",
+                    "Arakawa Line",
+                    "Asakusa Line",
+                    "Chiba Line",
+                    "Chiba Urban Monorail Line 1",
+                    "Chiba Urban Monorail Line 2",
+                    "Chihara Line",
+                    "Chiyoda Branch Line",
+                    "Chiyoda Line",
+                    "Chuo Line",
+                    "Chuo-Sobu Line",
+                    "Daishi Line",
+                    "Den-en-toshi Line",
+                    "Enoshima Electric Railway",
+                    "Enoshima Line",
+                    "Fukutoshin Line",
+                    "Ginza Line",
+                    "Hachiko Line",
+                    "Haijima Line",
+                    "Hanzomon Line",
+                    "Hibiya Line",
+                    "Hokuso Line",
+                    "Ikebukuro Line",
+                    "Ikegami Line",
+                    "Inokashira Line",
+                    "Isesaki Extension Line",
+                    "Itsukaichi Line",
+                    "Izumino Line",
+                    "Joban Express Line",
+                    "Joban Local Line",
+                    "Kameido Line",
+                    "Kanamachi Line",
+                    "Keiba Line",
+                    "Keihin-Tohoku Line",
+                    "Keikyu Line",
+                    "Keio Line",
+                    "Keisei Line",
+                    "Keiyo Line",
+                    "Kokubunji Line",
+                    "Kurihama Line",
+                    "Marunouchi Branch Line",
+                    "Marunouchi Line",
+                    "Meguro Line",
+                    "Minato Mirai Line",
+                    "Mita Line",
+                    "Musashino Line",
+                    "Nagareyama Line",
+                    "Namboku Line",
+                    "Nambu Branch Line",
+                    "Nambu Line",
+                    "Narita Express",
+                    "Narita Line",
+                    "New Line",
+                    "Nippori-Toneri Liner",
+                    "Noda Line",
+                    "Odawara Line",
+                    "Oedo Line",
+                    "Ogose Line",
+                    "Oimachi Line",
+                    "Ome Line",
+                    "Oshiage Line",
+                    "Rinkai Line",
+                    "Sagami Line",
+                    "Sagamihara Line",
+                    "Saikyo Line",
+                    "Saitama Rapid Railway Line",
+                    "Seibu Shinjuku Line",
+                    "Seibu-en Line",
+                    "Setagaya Line",
+                    "Shin-Keisei Line",
+                    "Shonan Monorail",
+                    "Shonan Shinjuku Line",
+                    "Skyliner",
+                    "Skytree Line",
+                    "Sobu Line (Rapid)",
+                    "Sotetsu Line",
+                    "Takao Line",
+                    "Takasaki Line",
+                    "Tama Line",
+                    "Tama Monorail",
+                    "Tamagawa Line",
+                    "Tamako Line",
+                    "Toei Shinjuku Line",
+                    "Tojo Line",
+                    "Tokaido Main Line",
+                    "Tokyo Monorail",
+                    "Toshima Line",
+                    "Toyo Rapid Line",
+                    "Toyoko Line",
+                    "Tozai Line",
+                    "Tsukuba Express Line",
+                    "Tsurumi Line",
+                    "Tsurumi Okawa Branch Line",
+                    "Utsunomiya Line",
+                    "Yamanote Line",
+                    "Yokohama Line",
+                    "Yokohama Subway Blue Line",
+                    "Yokohama Subway Green Line",
+                    "Yokosuka Line",
+                    "Yurakucho Line",
+                    "Yurakucho Line (Seibu)",
+                    "Yurikamome Line"
+                  ]
+                }
+              },
+              "required": [
+                "name"
+              ]
+            },
+            "description": "Field type: ."
+          }
+        },
+        "required": [
+          "lines",
+          "station_name",
+          "walk_time_min"
+        ]
+      },
+      "description": "Field type: ."
+    },
+    "other_requirements": {
+      "type": "object",
+      "properties": {
+        "japanese_required": {
+          "type": "boolean",
+          "description": "Field type: boolean. Example: True"
+        },
+        "note": {
+          "type": "string",
+          "description": "Field type: string."
+        }
+      },
+      "required": [
+        "japanese_required",
+        "note"
+      ],
+      "description": "Field type: ."
+    },
+    "unit_notes": {
+      "type": "string",
+      "description": "Field type: string."
+    }
+  },
+  "required": [
+    "id",
+    "url",
+    "name",
+    "property_type",
+    "address",
+    "area",
+    "type",
+    "price",
+    "images",
+    "initial_cost_estimate"
+  ]
+}
