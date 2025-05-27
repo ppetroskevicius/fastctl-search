@@ -1,18 +1,19 @@
 import os
 import json
-import logging
 from typing import List, Dict, Any, Optional
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import VectorParams, Distance, PointStruct, PayloadSchemaType
 from openai import OpenAI
 from models import Property, Feature, PropertyType
+from loguru import logger
 
 # Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s"
+logger.remove()  # Remove default handler
+logger.add(
+    sink=lambda msg: print(msg, end=""),
+    format="{time:YYYY-MM-DD HH:mm:ss.SSS} | {level: <8} | {message}",
+    level="INFO"
 )
-logger = logging.getLogger(__name__)
 
 # Configuration
 TEST_MODE = True
@@ -91,7 +92,7 @@ def create_collection():
                 field_name=field_name,
                 field_schema=field_type
             )
-            logger.info(f"Created {field_type} index on {field_name}")
+            logger.debug(f"Created {field_type} index on {field_name}")
         logger.info(f"Created Qdrant collection: {COLLECTION_NAME}")
     except Exception as e:
         logger.error(f"Failed to create Qdrant collection: {e}")
@@ -250,6 +251,7 @@ def index_properties():
         # Apply test mode limit
         if TEST_MODE:
             properties_data = properties_data[:TEST_PROPERTIES_PER_TYPE]
+            logger.info(f"Test mode: processing {TEST_PROPERTIES_PER_TYPE} properties")
         
         points = []
         text_batch = []
