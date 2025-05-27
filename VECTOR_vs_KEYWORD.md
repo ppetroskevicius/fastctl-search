@@ -20,7 +20,7 @@ To recommend which data fields from the unified data model (defined in the conso
 ### Recommendations
 - **Semantic Search**: Include text-rich fields that capture property descriptions, locations, or attributes relevant to natural language queries. These are embedded into vectors for similarity search.
 - **Payload Indexes**: Index fields used for filtering to improve query performance, focusing on scalars and keyword lists. Avoid indexing fields only used in semantic search or rarely filtered.
-- **Both**: Fields that are both embedded for semantic search and filtered structurally, ensuring they’re searchable and filterable efficiently.
+- **Both**: Fields that are both embedded for semantic search and filtered structurally, ensuring they're searchable and filterable efficiently.
 
 ### Table of Recommended Fields
 
@@ -104,13 +104,25 @@ Below is a table listing all fields from the unified data model (`Property` mode
 | ├─ **building.total_floors**        | No                  | Yes (integer)     | Numeric (e.g., 29). Indexed for potential filtering (e.g., high-rise). Not embedded. |
 | ├─ **building.total_units**         | No                  | No                | Numeric, not currently filtered or searched.                                      |
 | **additional_info**                 | Yes                 | No                | Text (e.g., "A redefinition of premium living"). Embedded for search. Not filtered. |
+| **Computed Fields**                  |                     |                   | Fields computed for enhanced semantic search capabilities                          |
+| ├─ **location_description**          | Yes                 | No                | Computed text combining address components. Optimized for location-based semantic queries. |
+| ├─ **size_description**             | Yes                 | No                | Computed text for area measurements. Enhanced semantic search for size-related queries. |
+| ├─ **price_description**            | Yes                 | No                | Computed text for price information. Improves semantic understanding of pricing terms. |
+| ├─ **station_description**          | Yes                 | No                | Computed text for station accessibility. Enhances transit-related semantic queries. |
+| ├─ **notes_description**            | Yes                 | No                | Computed comprehensive building notes. Rich text for semantic property description matching. |
+| ├─ **details_description**          | Yes                 | No                | Computed property details text. Enhances semantic matching for property attributes. |
+| ├─ **building_description**         | Yes                 | No                | Computed building information text. Improves building-related semantic queries. |
+| ├─ **semantic_description**         | Yes                 | No                | Primary computed field combining all relevant text fields for comprehensive semantic search. |
+| ├─ **search_keywords**              | Yes                 | Yes (keyword)     | Computed list of relevant keywords. Used both for semantic search and filtered keyword matching. |
+| ├─ **property_highlights**          | Yes                 | No                | Computed key property attributes. Enhances semantic matching for important features. |
+| ├─ **accessibility_metrics**        | No                  | Yes (float)       | Computed numerical scores. Used for filtering by accessibility, not semantic search. |
 
 ### Explanation of Recommendations
 - **Semantic Search**:
   - **Included**: Text fields (`name`, `address.full`, `unit_notes`, `building_notes.summary`, `additional_info`) for descriptive matching.
   - **Included (Enums)**: Fields like `property_type`, `type`, `features.unit`, `contract.length` are embedded as text for semantic queries (e.g., "short-term" matches `property_type="Short-Term"`).
   - **Excluded**: Numeric fields (`area.m2`, `price.total`) and URLs (`images.main`) lack semantic content. Fields like `id`, `listing_id` are non-descriptive.
-  - **Rationale**: Matches `index_properties.py`’s `get_text_for_embedding`, which embeds `name`, `unit_notes`, `building_notes`, `additional_info`, `contract.length`. Extended to include fields like `features.unit`, `address.full` for broader query coverage.
+  - **Rationale**: Matches `index_properties.py`'s `get_text_for_embedding`, which embeds `name`, `unit_notes`, `building_notes`, `additional_info`, `contract.length`. Extended to include fields like `features.unit`, `address.full` for broader query coverage.
 
 - **Payload Indexes**:
   - **Included**: Fields used in `search_cli.py` filters (`property_type`, `area.m2`, `price.monthly_total`, `price.total`, `features.unit`) and likely future filters (`year_built`, `nearest_stations.walk_time_min`, `type`, `contract.length`, `status`).

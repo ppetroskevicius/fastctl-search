@@ -6,7 +6,6 @@ from qdrant_client import QdrantClient
 from qdrant_client.http.models import VectorParams, Distance, PointStruct
 from openai import OpenAI
 from models import Property, Feature, PropertyType
-from datetime import datetime
 
 # Configure logging
 logging.basicConfig(
@@ -16,7 +15,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Configuration
-TEST_MODE = False
+TEST_MODE = True
 TEST_PROPERTIES_PER_TYPE = 20
 QDRANT_BATCH_SIZE = 100
 OPENAI_BATCH_SIZE = 50
@@ -45,7 +44,7 @@ json_files = [
 ]
 
 def create_collection():
-    """Create or recreate Qdrant collection with specified configuration."""
+    """Create or recreate Qdrant collection with specified configuration and payload indexes."""
     try:
         if qdrant_client.collection_exists(COLLECTION_NAME):
             logger.info(f"Deleting existing collection {COLLECTION_NAME}")
@@ -54,6 +53,31 @@ def create_collection():
             collection_name=COLLECTION_NAME,
             vectors_config=VectorParams(size=1536, distance=Distance.COSINE),
         )
+        # Add payload indexes for frequently filtered fields
+        payload_indexes = [
+            ("property_type", "keyword"),
+            ("area.m2", "float"),
+            ("price.monthly_total", "integer"),
+            ("price.total", "integer"),
+            ("price.short_term_monthly_total", "integer"),
+            ("features.unit", "keyword"),
+            ("type", "keyword"),
+            ("nearest_stations.walk_time_min", "integer"),
+            ("year_built", "integer"),
+            ("address.latitude", "float"),
+            ("address.longitude", "float"),
+            ("contract.length", "keyword"),
+            ("contract.type", "keyword"),
+            ("status", "keyword"),
+            ("layout", "keyword"),
+        ]
+        for field_name, field_type in payload_indexes:
+            qdrant_client.create_payload_index(
+                collection_name=COLLECTION_NAME,
+                field_name=field_name,
+                field_schema=field_type
+            )
+            logger.info(f"Created {field_type} index on {field_name}")
         logger.info(f"Created Qdrant collection: {COLLECTION_NAME}")
     except Exception as e:
         logger.error(f"Failed to create Qdrant collection: {e}")
@@ -80,7 +104,6 @@ def normalize_features(data: Dict[str, Any]) -> Dict[str, List[str]]:
     if "features" in data:
         if "unit" in data["features"]:
             for feature in data["features"]["unit"]:
-                # Map variations of Pet Friendly to a single value
                 if feature.startswith("Pet Friendly"):
                     features["unit"].append(Feature.PET_FRIENDLY.value)
                 elif feature in Feature.__members__.values():
@@ -127,12 +150,10 @@ def preprocess_property(data: Dict[str, Any], property_type: str) -> Dict[str, A
             processed["initial_cost_estimate"].get("agency_fee")
         )
     
-    # Convert last_updated to date if present
+    # Convert last_updated to datetime if present
     if "last_updated" in processed and processed["last_updated"]:
         try:
-            processed["last_updated"] = datetime.strptime(
-                processed["last_updated"], "%Y-%m-%d"
-            ).date().isoformat()
+            processed["last_updated"] = processed["last_updated"]
         except ValueError:
             logger.warning(f"Invalid date format for last_updated: {processed['last_updated']}")
             processed["last_updated"] = None
@@ -148,16 +169,12 @@ def validate_property(data: Dict[str, Any]) -> Property:
         raise
 
 def get_text_for_embedding(property: Property) -> str:
-    """Generate text for embedding from relevant fields."""
+    """Generate text for embedding using computed fields."""
     parts = [
-        property.name,
-        property.unit_notes or "",
-        property.building_notes.summary if property.building_notes else "",
-        property.building_notes.description if property.building_notes else "",
-        property.additional_info or "",
-        property.contract.length if property.contract and property.contract.length else "",
+        property.semantic_description,
+        " ".join(property.search_keywords) if property.search_keywords else "",
     ]
-    return " ".join(parts).strip()
+    return " ".join(filter(None, parts)).strip()
 
 def embed_texts(texts: List[str]) -> List[List[float]]:
     """Generate embeddings using OpenAI."""
