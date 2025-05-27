@@ -3,7 +3,7 @@ import json
 import logging
 from typing import Optional, List, Dict, Any
 from qdrant_client import QdrantClient
-from qdrant_client.http.models import VectorParams, Distance, PointStruct
+from qdrant_client.http.models import VectorParams, Distance, PointStruct, PayloadSchemaType
 from openai import OpenAI
 from models import Property, Feature, PropertyType
 
@@ -61,15 +61,28 @@ def create_collection():
             ("price.total", "integer"),
             ("price.short_term_monthly_total", "integer"),
             ("features.unit", "keyword"),
+            ("features.building", "keyword"),
             ("type", "keyword"),
+            ("nearest_stations.station_name", "keyword"),
             ("nearest_stations.walk_time_min", "integer"),
+            ("nearest_stations.lines.company", "keyword"),
+            ("nearest_stations.lines.name", "keyword"),
+            ("floor", "keyword"),
+            ("contract.length", "keyword"),
+            ("contract.type", "keyword"),
             ("year_built", "integer"),
             ("address.latitude", "float"),
             ("address.longitude", "float"),
-            ("contract.length", "keyword"),
-            ("contract.type", "keyword"),
-            ("status", "keyword"),
             ("layout", "keyword"),
+            ("status", "keyword"),
+            ("last_updated", "keyword"),
+            ("details.layout", "keyword"),
+            ("details.floor", "keyword"),
+            ("details.balcony_direction", "keyword"),
+            ("details.land_rights", "keyword"),
+            ("details.transaction_type", "keyword"),
+            ("building.total_floors", "integer"),
+            ("building.structure", "keyword"),
         ]
         for field_name, field_type in payload_indexes:
             qdrant_client.create_payload_index(
@@ -78,6 +91,15 @@ def create_collection():
                 field_schema=field_type
             )
             logger.info(f"Created {field_type} index on {field_name}")
+
+        # Create geo index for coordinates
+        qdrant_client.create_payload_index(
+            collection_name=COLLECTION_NAME,
+            field_name="geo_location",
+            field_schema=PayloadSchemaType.GEO
+        )
+        logger.info("Created geo index on geo_location")
+
         logger.info(f"Created Qdrant collection: {COLLECTION_NAME}")
     except Exception as e:
         logger.error(f"Failed to create Qdrant collection: {e}")
@@ -235,10 +257,11 @@ def index_properties():
                     
                     # Create Qdrant points
                     for prop, embedding in zip(property_batch, embeddings):
+                        payload = prop.model_dump(exclude_none=True)
                         point = PointStruct(
                             id=prop.id,
                             vector=embedding,
-                            payload=prop.model_dump(exclude_none=True)
+                            payload=payload
                         )
                         points.append(point)
                     

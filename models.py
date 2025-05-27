@@ -469,3 +469,13 @@ class Property(BaseModel):
             "best_station_score": max(station_scores),
             "average_walk_time": sum(s.walk_time_min for s in self.nearest_stations) / len(station_scores)
         }
+
+    @computed_field
+    def geo_location(self) -> Optional[Dict[str, float]]:
+        """Generate geo location data in Qdrant's expected format for geo queries"""
+        if self.address and self.address.latitude is not None and self.address.longitude is not None:
+            return {
+                "lat": self.address.latitude,
+                "lon": self.address.longitude
+            }
+        return None
