@@ -1,7 +1,7 @@
 import os
 import json
 import logging
-from typing import Optional, List, Dict, Any
+from typing import List, Dict, Any, Optional
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import VectorParams, Distance, PointStruct, PayloadSchemaType
 from openai import OpenAI
@@ -26,12 +26,12 @@ qdrant_api_key = os.getenv("QDRANT_API_KEY")
 if not qdrant_url or not qdrant_api_key:
     logger.error("QDRANT_URL and QDRANT_API_KEY must be set in environment variables")
     raise ValueError("QDRANT_URL and QDRANT_API_KEY must be set in environment variables")
-
-qdrant_client = QdrantClient(url=qdrant_url, api_key=qdrant_api_key)
-openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 if not os.getenv("OPENAI_API_KEY"):
     logger.error("OPENAI_API_KEY must be set in environment variables")
     raise ValueError("OPENAI_API_KEY must be set in environment variables")
+
+qdrant_client = QdrantClient(url=qdrant_url, api_key=qdrant_api_key)
+openai_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Collection name
 COLLECTION_NAME = "real_estate"
@@ -71,8 +71,8 @@ def create_collection():
             ("contract.length", "keyword"),
             ("contract.type", "keyword"),
             ("year_built", "integer"),
-            ("address.latitude", "float"),
-            ("address.longitude", "float"),
+            ("address.ward", "keyword"),
+            ("address.city", "keyword"),
             ("layout", "keyword"),
             ("status", "keyword"),
             ("last_updated", "keyword"),
@@ -83,6 +83,7 @@ def create_collection():
             ("details.transaction_type", "keyword"),
             ("building.total_floors", "integer"),
             ("building.structure", "keyword"),
+            ("geo_location", PayloadSchemaType.GEO),
         ]
         for field_name, field_type in payload_indexes:
             qdrant_client.create_payload_index(
@@ -91,15 +92,6 @@ def create_collection():
                 field_schema=field_type
             )
             logger.info(f"Created {field_type} index on {field_name}")
-
-        # Create geo index for coordinates
-        qdrant_client.create_payload_index(
-            collection_name=COLLECTION_NAME,
-            field_name="geo_location",
-            field_schema=PayloadSchemaType.GEO
-        )
-        logger.info("Created geo index on geo_location")
-
         logger.info(f"Created Qdrant collection: {COLLECTION_NAME}")
     except Exception as e:
         logger.error(f"Failed to create Qdrant collection: {e}")
@@ -155,6 +147,22 @@ def normalize_agency_fee(fee: Any) -> Optional[int]:
         logger.warning(f"Invalid agency_fee format: {fee}, setting to None")
         return None
 
+def extract_ward_city(address: str) -> Dict[str, Optional[str]]:
+    """Extract ward and city from a full address by parsing the last two components."""
+    try:
+        parts = [part.strip() for part in address.split(",")]
+        if len(parts) < 2:
+            logger.warning(f"Invalid address format for ward/city extraction: {address}")
+            return {"ward": None, "city": None}
+        # Last component is city (e.g., "Tokyo"), second-to-last is ward (e.g., "Taito-ku")
+        city = parts[-1]
+        ward = parts[-2]
+        logger.debug(f"Extracted ward='{ward}', city='{city}' from address: {address}")
+        return {"ward": ward, "city": city}
+    except Exception as e:
+        logger.error(f"Error parsing address {address}: {e}")
+        return {"ward": None, "city": None}
+
 def preprocess_property(data: Dict[str, Any], property_type: str) -> Dict[str, Any]:
     """Preprocess raw property data to match Pydantic model."""
     processed = data.copy()
@@ -180,10 +188,18 @@ def preprocess_property(data: Dict[str, Any], property_type: str) -> Dict[str, A
             logger.warning(f"Invalid date format for last_updated: {processed['last_updated']}")
             processed["last_updated"] = None
     
+    # Extract ward and city if address is present
+    if "address" in processed and isinstance(processed["address"], dict) and "full" in processed["address"]:
+        processed["address"] = processed["address"].copy()
+        if not processed["address"].get("ward") or not processed["address"].get("city"):
+            ward_city = extract_ward_city(processed["address"]["full"])
+            processed["address"]["ward"] = processed["address"].get("ward") or ward_city["ward"]
+            processed["address"]["city"] = processed["address"].get("city") or ward_city["city"]
+    
     return processed
 
 def validate_property(data: Dict[str, Any]) -> Property:
-    """Validate and convert raw data to Pydantic Property model."""
+    """Validate and convert raw data to Pydantic model."""
     try:
         return Property(**data)
     except Exception as e:
@@ -257,11 +273,10 @@ def index_properties():
                     
                     # Create Qdrant points
                     for prop, embedding in zip(property_batch, embeddings):
-                        payload = prop.model_dump(exclude_none=True)
                         point = PointStruct(
                             id=prop.id,
                             vector=embedding,
-                            payload=payload
+                            payload=prop.model_dump(exclude_none=True)
                         )
                         points.append(point)
                     
