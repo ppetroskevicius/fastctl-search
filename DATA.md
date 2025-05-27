@@ -121,22 +121,6 @@ Below, I evaluate each field from the `property` object:
       - **Use**: Structured search (output only).
       - **Reason**: Stored in `payload.images` for result visualization, not filtered or embedded.
 
-17. **unit_notes**: `null`
-    - **Use**: Neither (potential for semantic).
-    - **Reason**: Not populated but could be included in embedding if descriptive.
-
-18. **unit_notes_amenities**: `[]`
-    - **Use**: Neither (potential for semantic).
-    - **Reason**: Empty but could be included in embedding if populated.
-
-19. **bedrooms**: `null`
-    - **Use**: Neither (potential for structured).
-    - **Reason**: Not populated but could be filtered if data is added.
-
-20. **balcony**: `null`
-    - **Use**: Neither (potential for structured).
-    - **Reason**: Not populated but could be filtered if data is added.
-
 21. **nearest_stations**:
     - **station_name**: `"Omotesando Station"`, `"Nogizaka Station"`
       - **Use**: Semantic and structured search.
@@ -189,10 +173,6 @@ Below is the updated table, including an example natural language semantic searc
 | `images.main`                      | No                  | Yes (output)          | "Apartments with available photos"                                               | In payload for visualization; query unlikely.                                    |
 | `images.thumbnails`                | No                  | Yes (output)          | "Apartments with multiple photos"                                                | In payload for visualization; query unlikely.                                    |
 | `images.floorplan`                 | No                  | Yes (output)          | "Apartments with floorplan images"                                               | In payload for visualization; query unlikely.                                    |
-| `unit_notes`                       | Potential           | No                    | "Apartments with special unit notes"                                             | Not populated; could be in embedding if descriptive.                             |
-| `unit_notes_amenities`             | Potential           | No                    | "Apartments with extra amenities like a gym"                                     | Empty; could be in embedding if populated.                                       |
-| `bedrooms`                         | No                  | Potential             | "Two-bedroom apartments in Bunkyo-ku"                                            | Not populated; could filter if added to `QueryElements`.                         |
-| `balcony`                          | No                  | Potential             | "Apartments with a balcony"                                                      | Not populated; could filter if added to `QueryElements`.                         |
 | `nearest_stations.station_name`    | Yes                 | Yes                   | "Apartments near Omotesando Station"                                             | In embedding for "near Omotesando"; filtered for `station_name`.                  |
 | `nearest_stations.walk_time_min`   | Yes (text)          | Yes                   | "Apartments within 10 minutes of a station"                                      | In embedding as text; filtered for `max_walk_time`.                              |
 | `nearest_stations.lines`           | Yes                 | Yes                   | "Apartments near the Odawara Line"                                               | In embedding for "Odawara Line"; filtered for `train_lines`.                     |
@@ -207,5 +187,4 @@ Below is the updated table, including an example natural language semantic searc
 - **Relevance to Tokyo**:
   - Queries reflect Tokyo’s context, using wards (e.g., "Minato-ku"), train lines (e.g., "Odawara Line"), and cultural factors (e.g., "non-Japanese speakers," "no guarantor fee").
   - For example, "not on the first floor" aligns with security concerns for single women, as you mentioned.
-- **Potential Fields**: For fields not currently used (e.g., `bedrooms`, `price_per_m2`), queries assume implementation in `QueryElements` and filters, showing how they could be used.
-- **Data Limitations**: Some queries (e.g., "near Odawara Line," "two-bedroom") may return no results with your current 3-property dataset due to empty fields (`lines`, `bedrooms`). They are designed to work with a populated dataset (e.g., 3000 properties).
+
