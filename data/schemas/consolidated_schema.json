@@ -1,0 +1,332 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+      "id": { "type": "integer", "description": "Unique property ID" },
+      "url": { "type": "string", "format": "uri", "description": "Property listing URL" },
+      "property_type": { "type": "string", "enum": ["Rent", "Buy", "Short-Term"], "description": "Listing type" },
+      "name": { "type": "string", "description": "Property name" },
+      "address": {
+        "type": "object",
+        "properties": {
+          "full": { "type": "string" },
+          "latitude": { "type": "number" },
+          "longitude": { "type": "number" }
+        },
+        "required": ["full", "latitude", "longitude"]
+      },
+      "area": {
+        "type": "object",
+        "properties": {
+          "m2": { "type": "number" },
+          "ft2": { "type": ["number", "null"] },
+          "price_per_m2": { "type": ["integer", "null"] },
+          "price_per_ft2": { "type": ["integer", "null"] }
+        },
+        "required": ["m2"]
+      },
+      "type": {
+        "type": "string",
+        "enum": ["Apartment", "Building with tenants", "Home with tenant", "House", "Land", "Monthly Rental", "Office / Store"]
+      },
+      "price": {
+        "type": "object",
+        "properties": {
+          "currency": { "type": "string", "enum": ["JPY"] },
+          "total": { "type": ["integer", "null"], "description": "Purchase price (Buy) or monthly total" },
+          "monthly_total": { "type": ["integer", "null"] },
+          "rent": { "type": ["integer", "null"] },
+          "management_fee": { "type": ["integer", "null"] },
+          "short_term_monthly_total": { "type": ["integer", "null"] },
+          "short_term_rent": { "type": ["integer", "null"] },
+          "short_term_management_fee": { "type": ["integer", "null"] },
+          "long_term_duration": { "type": ["string", "null"] },
+          "short_term_duration": { "type": ["string", "null"] }
+        },
+        "required": ["currency"]
+      },
+      "images": {
+        "type": "object",
+        "properties": {
+          "main": { "type": "string" },
+          "thumbnails": { "type": "array", "items": { "type": "string" } },
+          "floorplan": { "type": ["string", "null"] }
+        },
+        "required": ["main"]
+      },
+      "nearest_stations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "station_name": { "type": "string" },
+            "walk_time_min": { "type": "integer", "description": "Walking time in minutes to the station" },
+            "lines": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "company": {
+                    "type": ["string", "null"],
+                    "enum": [
+                      null,
+                      "JR",
+                      "Keikyu",
+                      "Keio",
+                      "Keisei",
+                      "Metropolitan Intercity Railway",
+                      "Odakyu",
+                      "SR",
+                      "Seibu",
+                      "Sotetsu",
+                      "TWR",
+                      "Tobu",
+                      "Toden",
+                      "Toei",
+                      "Tokyo Metro",
+                      "Tokyo Monorail",
+                      "Tokyu"
+                    ]
+                  },
+                  "name": {
+                    "type": "string",
+                    "enum": [
+                      "Airport Line",
+                      "Arakawa Line",
+                      "Asakusa Line",
+                      "Chiba Line",
+                      "Chiba Urban Monorail Line 1",
+                      "Chiba Urban Monorail Line 2",
+                      "Chihara Line",
+                      "Chiyoda Branch Line",
+                      "Chiyoda Line",
+                      "Chuo Line",
+                      "Chuo-Sobu Line",
+                      "Daishi Line",
+                      "Den-en-toshi Line",
+                      "Enoshima Electric Railway",
+                      "Enoshima Line",
+                      "Fukutoshin Line",
+                      "Ginza Line",
+                      "Hachiko Line",
+                      "Haijima Line",
+                      "Hanzomon Line",
+                      "Hibiya Line",
+                      "Hokuso Line",
+                      "Ikebukuro Line",
+                      "Ikegami Line",
+                      "Inokashira Line",
+                      "Isesaki Extension Line",
+                      "Itsukaichi Line",
+                      "Izumino Line",
+                      "Joban Express Line",
+                      "Joban Local Line",
+                      "Kameido Line",
+                      "Kanamachi Line",
+                      "Keiba Line",
+                      "Keihin-Tohoku Line",
+                      "Keikyu Line",
+                      "Keio Line",
+                      "Keisei Line",
+                      "Keiyo Line",
+                      "Kokubunji Line",
+                      "Kurihama Line",
+                      "Marunouchi Branch Line",
+                      "Marunouchi Line",
+                      "Meguro Line",
+                      "Minato Mirai Line",
+                      "Mita Line",
+                      "Musashino Line",
+                      "Nagareyama Line",
+                      "Namboku Line",
+                      "Nambu Branch Line",
+                      "Nambu Line",
+                      "Narita Express",
+                      "Narita Line",
+                      "New Line",
+                      "Nippori-Toneri Liner",
+                      "Noda Line",
+                      "Odawara Line",
+                      "Oedo Line",
+                      "Ogose Line",
+                      "Oimachi Line",
+                      "Ome Line",
+                      "Oshiage Line",
+                      "Rinkai Line",
+                      "Sagami Line",
+                      "Sagamihara Line",
+                      "Saikyo Line",
+                      "Saitama Rapid Railway Line",
+                      "Seibu Shinjuku Line",
+                      "Seibu-en Line",
+                      "Setagaya Line",
+                      "Shin-Keisei Line",
+                      "Shonan Monorail",
+                      "Shonan Shinjuku Line",
+                      "Skyliner",
+                      "Skytree Line",
+                      "Sobu Line (Rapid)",
+                      "Sotetsu Line",
+                      "Takao Line",
+                      "Takasaki Line",
+                      "Tama Line",
+                      "Tama Monorail",
+                      "Tamagawa Line",
+                      "Tamako Line",
+                      "Toei Shinjuku Line",
+                      "Tojo Line",
+                      "Tokaido Main Line",
+                      "Tokyo Monorail",
+                      "Toshima Line",
+                      "Toyo Rapid Line",
+                      "Toyoko Line",
+                      "Tozai Line",
+                      "Tsukuba Express Line",
+                      "Tsurumi Line",
+                      "Tsurumi Okawa Branch Line",
+                      "Utsunomiya Line",
+                      "Yamanote Line",
+                      "Yokohama Line",
+                      "Yokohama Subway Blue Line",
+                      "Yokohama Subway Green Line",
+                      "Yokosuka Line",
+                      "Yurakucho Line",
+                      "Yurakucho Line (Seibu)",
+                      "Yurikamome Line"
+                    ]
+                  }
+                },
+                "required": ["name"]
+              }
+            }
+          },
+          "required": ["station_name", "walk_time_min", "lines"]
+        }
+      },
+      "unit_number": { "type": ["string", "null"] },
+      "building_id": { "type": ["string", "null"] },
+      "floor": { "type": ["string", "null"] },
+      "contract": {
+        "type": ["object", "null"],
+        "properties": {
+          "length": { "type": "string", "description": "Contract duration" },
+          "type": { "type": "string", "enum": ["Fixed", "Monthly", "Standard"] }
+        }
+      },
+      "year_built": { "type": ["integer", "null"], "description": "Year the building was constructed" },
+      "initial_cost_estimate": {
+        "type": ["object", "null"],
+        "properties": {
+          "first_month_rent": { "type": ["integer", "null"] },
+          "guarantor_service": { "type": ["integer", "null"] },
+          "fire_insurance": { "type": ["integer", "null"] },
+          "agency_fee": { "type": ["integer", "string", "null"] },
+          "estimated_total": { "type": ["integer", "null"] }
+        }
+      },
+      "features": {
+        "type": ["object", "null"],
+        "properties": {
+          "unit": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "Air Conditioning",
+                "Balcony",
+                "Dishwasher",
+                "Disposer",
+                "Floor Heating",
+                "Free Internet",
+                "Fully Furnished",
+                "Furnished",
+                "Intercom",
+                "Loft",
+                "Oven",
+                "Pet Friendly(+1 mo deposit)",
+                "Pet Friendly(+2 mo deposit)",
+                "Pet Friendly(+\u00a5100.000 Deposit)",
+                "Range Type: Electric",
+                "Range Type: Gas",
+                "Range Type: IH",
+                "Refrigerator",
+                "Security system for each unit",
+                "Tatami Room",
+                "Toilet / Bathroom Separate",
+                "Walk-in Closet",
+                "Washer & Dryer",
+                "Washer In-Unit",
+                "Washlet Toilet"
+              ]
+            }
+          },
+          "building": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "amenities": {
+        "type": ["array", "null"],
+        "items": {
+          "type": "string",
+          "enum": [
+            "Air Conditioning",
+            "Autolock",
+            "Delivery Box",
+            "Earthquake Resistance",
+            "Gym",
+            "High-speed Internet",
+            "Parking",
+            "Pet Negotiable",
+            "Security",
+            "Washer & Dryer",
+            "Washlet Toilet"
+          ]
+        }
+      },
+      "unit_notes": { "type": ["string", "null"] },
+      "unit_notes_amenities": { "type": ["array", "null"], "items": { "type": "string" } },
+      "bedrooms": { "type": ["string", "null"] },
+      "balcony": { "type": ["string", "null"] },
+      "building_notes": {
+        "type": ["object", "null"],
+        "properties": {
+          "summary": { "type": ["string", "null"] },
+          "description": { "type": ["string", "null"] },
+          "facilities": { "type": ["object", "null"], "additionalProperties": { "type": "string" } }
+        }
+      },
+      "other_requirements": {
+        "type": ["object", "null"],
+        "properties": {
+          "japanese_required": { "type": ["boolean", "null"] },
+          "note": { "type": ["string", "null"] }
+        }
+      },
+      "layout": { "type": ["string", "null"] },
+      "status": { "type": ["string", "null"], "enum": [null, "Available", "Under Contract", "Sold"] },
+      "listing_id": { "type": ["string", "null"] },
+      "last_updated": { "type": ["string", "null"], "format": "date" },
+      "details": {
+        "type": ["object", "null"],
+        "properties": {
+          "layout": { "type": ["string", "null"] },
+          "balcony_direction": { "type": ["string", "null"] },
+          "floor": { "type": ["string", "null"] },
+          "land_rights": { "type": ["string", "null"], "enum": [null, "Freehold", "Leasehold"] },
+          "transaction_type": { "type": ["string", "null"] },
+          "management_fee": { "type": ["integer", "null"] },
+          "repair_reserve_fund": { "type": ["integer", "null"] }
+        }
+      },
+      "building": {
+        "type": ["object", "null"],
+        "properties": {
+          "structure": { "type": ["string", "null"] },
+          "year_built": { "type": ["integer", "null"] },
+          "total_floors": { "type": ["integer", "null"], "minimum": 2 },
+          "total_units": { "type": ["integer", "null"] }
+        }
+      },
+      "additional_info": { "type": ["string", "null"] }
+    },
+    "required": ["id", "url", "property_type", "name", "address", "area", "type", "price", "images"]
+  }

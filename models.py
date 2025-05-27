@@ -1,73 +1,207 @@
-from typing import List, Optional, Dict, Union, Literal
-from pydantic import BaseModel, model_validator, Field, computed_field
-from loguru import logger
-from datetime import datetime
+from pydantic import BaseModel, HttpUrl
+from typing import List, Optional
 from enum import Enum
+from datetime import date
 
-# Enums - Define these first
 class PropertyType(str, Enum):
     RENT = "Rent"
     BUY = "Buy"
     SHORT_TERM = "Short-Term"
 
-class PropertyStatus(str, Enum):
-    AVAILABLE = "Available"
-    UNDER_CONTRACT = "Under Contract"
-    SOLD = "Sold"
-
-class PropertyCategory(str, Enum):
+class PropertyTypeEnum(str, Enum):
     APARTMENT = "Apartment"
-    HOUSE = "House"
-    OFFICE_STORE = "Office / Store"
     BUILDING_WITH_TENANTS = "Building with tenants"
     HOME_WITH_TENANT = "Home with tenant"
+    HOUSE = "House"
     LAND = "Land"
     MONTHLY_RENTAL = "Monthly Rental"
+    OFFICE_STORE = "Office / Store"
 
 class ContractType(str, Enum):
     FIXED = "Fixed"
-    STANDARD = "Standard"
     MONTHLY = "Monthly"
+    STANDARD = "Standard"
+
+class Status(str, Enum):
+    AVAILABLE = "Available"
+    UNDER_CONTRACT = "Under Contract"
+    SOLD = "Sold"
 
 class LandRights(str, Enum):
     FREEHOLD = "Freehold"
     LEASEHOLD = "Leasehold"
 
-# Property-related models
+class LineCompany(str, Enum):
+    JR = "JR"
+    KEIKYU = "Keikyu"
+    KEIO = "Keio"
+    KEISEI = "Keisei"
+    METROPOLITAN_INTERCITY = "Metropolitan Intercity Railway"
+    ODAKYU = "Odakyu"
+    SR = "SR"
+    SEIBU = "Seibu"
+    SOTETSU = "Sotetsu"
+    TWR = "TWR"
+    TOBU = "Tobu"
+    TODEN = "Toden"
+    TOEI = "Toei"
+    TOKYO_METRO = "Tokyo Metro"
+    TOKYO_MONORAIL = "Tokyo Monorail"
+    TOKYU = "Tokyu"
+
+class LineName(str, Enum):
+    AIRPORT_LINE = "Airport Line"
+    ARAKAWA_LINE = "Arakawa Line"
+    ASAKUSA_LINE = "Asakusa Line"
+    CHIBA_LINE = "Chiba Line"
+    CHIBA_URBAN_MONORAIL_LINE_1 = "Chiba Urban Monorail Line 1"
+    CHIBA_URBAN_MONORAIL_LINE_2 = "Chiba Urban Monorail Line 2"
+    CHIHARA_LINE = "Chihara Line"
+    CHIYODA_BRANCH_LINE = "Chiyoda Branch Line"
+    CHIYODA_LINE = "Chiyoda Line"
+    CHUO_LINE = "Chuo Line"
+    CHUO_SOBU_LINE = "Chuo-Sobu Line"
+    DAISHI_LINE = "Daishi Line"
+    DEN_EN_TOSHI_LINE = "Den-en-toshi Line"
+    ENOSHIMA_ELECTRIC_RAILWAY = "Enoshima Electric Railway"
+    ENOSHIMA_LINE = "Enoshima Line"
+    FUKUTOSHIN_LINE = "Fukutoshin Line"
+    GINZA_LINE = "Ginza Line"
+    HACHIKO_LINE = "Hachiko Line"
+    HAIJIMA_LINE = "Haijima Line"
+    HANZOMON_LINE = "Hanzomon Line"
+    HIBIYA_LINE = "Hibiya Line"
+    HOKUSO_LINE = "Hokuso Line"
+    IKEBUKURO_LINE = "Ikebukuro Line"
+    IKEGAMI_LINE = "Ikegami Line"
+    INOKASHIRA_LINE = "Inokashira Line"
+    ISESAKI_EXTENSION_LINE = "Isesaki Extension Line"
+    ITSUKAICHI_LINE = "Itsukaichi Line"
+    IZUMINO_LINE = "Izumino Line"
+    JOBAN_EXPRESS_LINE = "Joban Express Line"
+    JOBAN_LOCAL_LINE = "Joban Local Line"
+    KAMEIDO_LINE = "Kameido Line"
+    KANAMACHI_LINE = "Kanamachi Line"
+    KEIBA_LINE = "Keiba Line"
+    KEIHIN_TOHOKU_LINE = "Keihin-Tohoku Line"
+    KEIKYU_LINE = "Keikyu Line"
+    KEIO_LINE = "Keio Line"
+    KEISEI_LINE = "Keisei Line"
+    KEIYO_LINE = "Keiyo Line"
+    KOKUBUNJI_LINE = "Kokubunji Line"
+    KURIHAMA_LINE = "Kurihama Line"
+    MARUNOUCHI_BRANCH_LINE = "Marunouchi Branch Line"
+    MARUNOUCHI_LINE = "Marunouchi Line"
+    MEGURO_LINE = "Meguro Line"
+    MINATO_MIRAI_LINE = "Minato Mirai Line"
+    MITA_LINE = "Mita Line"
+    MUSASHINO_LINE = "Musashino Line"
+    NAGAREYAMA_LINE = "Nagareyama Line"
+    NAMBUKU_LINE = "Namboku Line"
+    NAMBU_BRANCH_LINE = "Nambu Branch Line"
+    NAMBU_LINE = "Nambu Line"
+    NARITA_EXPRESS = "Narita Express"
+    NARITA_LINE = "Narita Line"
+    NEW_LINE = "New Line"
+    NIPPORI_TONERI_LINER = "Nippori-Toneri Liner"
+    NODA_LINE = "Noda Line"
+    ODAWARA_LINE = "Odawara Line"
+    OEDO_LINE = "Oedo Line"
+    OGOSE_LINE = "Ogose Line"
+    OIMACHI_LINE = "Oimachi Line"
+    OME_LINE = "Ome Line"
+    OSHIAGE_LINE = "Oshiage Line"
+    RINKAI_LINE = "Rinkai Line"
+    SAGAMI_LINE = "Sagami Line"
+    SAGAMIHARA_LINE = "Sagamihara Line"
+    SAIKYO_LINE = "Saikyo Line"
+    SAITAMA_RAPID_RAILWAY_LINE = "Saitama Rapid Railway Line"
+    SEIBU_SHINJUKU_LINE = "Seibu Shinjuku Line"
+    SEIBU_EN_LINE = "Seibu-en Line"
+    SETAGAYA_LINE = "Setagaya Line"
+    SHIN_KEISEI_LINE = "Shin-Keisei Line"
+    SHONAN_MONORAIL = "Shonan Monorail"
+    SHONAN_SHINJUKU_LINE = "Shonan Shinjuku Line"
+    SKYLINER = "Skyliner"
+    SKYTREE_LINE = "Skytree Line"
+    SOBU_LINE_RAPID = "Sobu Line (Rapid)"
+    SOTETSU_LINE = "Sotetsu Line"
+    TAKAO_LINE = "Takao Line"
+    TAKASAKI_LINE = "Takasaki Line"
+    TAMA_LINE = "Tama Line"
+    TAMA_MONORAIL = "Tama Monorail"
+    TAMAGAWA_LINE = "Tamagawa Line"
+    TAMAKO_LINE = "Tamako Line"
+    TOEI_SHINJUKU_LINE = "Toei Shinjuku Line"
+    TOJO_LINE = "Tojo Line"
+    TOKAIDO_MAIN_LINE = "Tokaido Main Line"
+    TOKYO_MONORAIL = "Tokyo Monorail"
+    TOSHIMA_LINE = "Toshima Line"
+    TOYO_RAPID_LINE = "Toyo Rapid Line"
+    TOYOKO_LINE = "Toyoko Line"
+    TOZAI_LINE = "Tozai Line"
+    TSUKUBA_EXPRESS_LINE = "Tsukuba Express Line"
+    TSURUMI_LINE = "Tsurumi Line"
+    TSURUMI_OKAWA_BRANCH_LINE = "Tsurumi Okawa Branch Line"
+    UTSUNOMIYA_LINE = "Utsunomiya Line"
+    YAMANOTE_LINE = "Yamanote Line"
+    YOKOHAMA_LINE = "Yokohama Line"
+    YOKOHAMA_SUBWAY_BLUE_LINE = "Yokohama Subway Blue Line"
+    YOKOHAMA_SUBWAY_GREEN_LINE = "Yokohama Subway Green Line"
+    YOKOSUKA_LINE = "Yokosuka Line"
+    YURAKUCHO_LINE = "Yurakucho Line"
+    YURAKUCHO_LINE_SEIBU = "Yurakucho Line (Seibu)"
+    YURIKAMOME_LINE = "Yurikamome Line"
+
+class Feature(str, Enum):
+    AIR_CONDITIONING = "Air Conditioning"
+    AUTO_LOCK = "Autolock"
+    BALCONY = "Balcony"
+    DELIVERY_BOX = "Delivery Box"
+    DISHWASHER = "Dishwasher"
+    DISPOSER = "Disposer"
+    EARTHQUAKE_RESISTANCE = "Earthquake Resistance"
+    FLOOR_HEATING = "Floor Heating"
+    FREE_INTERNET = "Free Internet"
+    FULLY_FURNISHED = "Fully Furnished"
+    FURNISHED = "Furnished"
+    GYM = "Gym"
+    HIGH_SPEED_INTERNET = "High-speed Internet"
+    INTERCOM = "Intercom"
+    LOFT = "Loft"
+    OVEN = "Oven"
+    PARKING = "Parking"
+    PET_FRIENDLY = "Pet Friendly"
+    PET_NEGOTIABLE = "Pet Negotiable"
+    RANGE_ELECTRIC = "Range Type: Electric"
+    RANGE_GAS = "Range Type: Gas"
+    RANGE_IH = "Range Type: IH"
+    REFRIGERATOR = "Refrigerator"
+    SECURITY = "Security"
+    SECURITY_SYSTEM = "Security system for each unit"
+    TATAMI_ROOM = "Tatami Room"
+    TOILET_BATHROOM_SEPARATE = "Toilet / Bathroom Separate"
+    WALK_IN_CLOSET = "Walk-in Closet"
+    WASHER_DRYER = "Washer & Dryer"
+    WASHER_IN_UNIT = "Washer In-Unit"
+    WASHLET_TOILET = "Washlet Toilet"
+
 class Address(BaseModel):
     full: str
-    latitude: Optional[float] = Field(None, ge=-90, le=90)
-    longitude: Optional[float] = Field(None, ge=-180, le=180)
-    ward: Optional[str] = None  # Added for better location search
-    city: Optional[str] = None  # Added for better location search
-    postal_code: Optional[str] = None  # Added for better location search
-
-    @computed_field
-    def location_description(self) -> str:
-        """Generate a human-readable location description for semantic search"""
-        parts = [self.full]
-        if self.ward:
-            parts.append(f"in {self.ward}")
-        if self.city:
-            parts.append(f"in {self.city}")
-        return " ".join(parts)
+    latitude: float
+    longitude: float
 
 class Area(BaseModel):
-    m2: float = Field(..., gt=0)
-    ft2: Optional[float] = Field(None, gt=0)
-    price_per_m2: Optional[int] = Field(None, gt=0)
-    price_per_ft2: Optional[int] = Field(None, gt=0)
-
-    @computed_field
-    def size_description(self) -> str:
-        """Generate a human-readable size description for semantic search"""
-        return f"{self.m2:.1f}㎡ ({self.ft2:.1f}ft² if self.ft2 else '')"
+    m2: float
+    ft2: Optional[float] = None
+    price_per_m2: Optional[int] = None
+    price_per_ft2: Optional[int] = None
 
 class Price(BaseModel):
-    currency: str
-    total: Optional[int] = None  # For Buy
-    monthly_total: Optional[int] = None  # For Rent/Short-term
-    rent: Optional[int] = None  # For Rent/Short-term
+    currency: str = "JPY"
+    total: Optional[int] = None
+    monthly_total: Optional[int] = None
+    rent: Optional[int] = None
     management_fee: Optional[int] = None
     short_term_monthly_total: Optional[int] = None
     short_term_rent: Optional[int] = None
@@ -75,86 +209,39 @@ class Price(BaseModel):
     long_term_duration: Optional[str] = None
     short_term_duration: Optional[str] = None
 
-    @computed_field
-    def price_description(self) -> str:
-        """Generate a human-readable price description for semantic search"""
-        if self.total:
-            return f"{self.total:,} {self.currency} (total)"
-        elif self.monthly_total:
-            return f"{self.monthly_total:,} {self.currency}/month"
-        else:
-            return f"{self.short_term_monthly_total:,} {self.currency}/month (short-term)"
+class Images(BaseModel):
+    main: str
+    thumbnails: List[str] = []
+    floorplan: Optional[str] = None
 
-class InitialCostEstimate(BaseModel):
-    first_month_rent: int
-    guarantor_service: int
-    fire_insurance: Optional[int] = None
-    agency_fee: int
-    estimated_total: int
-
-    @computed_field
-    def cost_summary(self) -> str:
-        """Generate a human-readable cost summary for semantic search"""
-        return f"Initial costs: {self.estimated_total:,} including {self.first_month_rent:,} first month rent"
-
-class Contract(BaseModel):
-    length: str  # Keep as string due to varied formats like "2 YearsFixed"
-    type: ContractType
-    
-    @computed_field
-    def contract_description(self) -> str:
-        """Generate a human-readable contract description for semantic search"""
-        return f"{self.type} contract for {self.length}"
-
-class StationLine(BaseModel):
-    name: str
-    company: Optional[str] = None
+class Line(BaseModel):
+    company: Optional[LineCompany] = None
+    name: LineName
 
 class Station(BaseModel):
     station_name: str
-    walk_time_min: int = Field(..., ge=0, le=60)
-    lines: List[StationLine]
+    walk_time_min: int
+    lines: List[Line]
 
-    @computed_field
-    def station_description(self) -> str:
-        """Generate a human-readable station description for semantic search"""
-        lines_str = ", ".join(line.name for line in self.lines)
-        return f"{self.station_name} Station ({self.walk_time_min} min walk) - Lines: {lines_str}"
-    
-    @computed_field
-    def accessibility_score(self) -> float:
-        """Calculate an accessibility score based on walk time and number of lines"""
-        base_score = 100 - (self.walk_time_min * 2)  # Decrease score by 2 points per minute
-        line_bonus = len(self.lines) * 5  # Add 5 points per line
-        return min(100, max(0, base_score + line_bonus))
+class Contract(BaseModel):
+    length: Optional[str] = None
+    type: Optional[ContractType] = None
 
-class Images(BaseModel):
-    main: str
-    floorplan: str
-    thumbnails: Optional[List[str]] = None
+class InitialCostEstimate(BaseModel):
+    first_month_rent: Optional[int] = None
+    guarantor_service: Optional[int] = None
+    fire_insurance: Optional[int] = None
+    agency_fee: Optional[int] = None
+    estimated_total: Optional[int] = None
 
-class OtherRequirements(BaseModel):
-    japanese_required: bool
-    note: str
+class Features(BaseModel):
+    unit: List[Feature] = []
+    building: List[str] = []
 
-class Building(BaseModel):
-    structure: Optional[str] = None
-    year_built: Optional[int] = Field(None, ge=1900, le=datetime.now().year + 1)
-    total_floors: Optional[int] = Field(None, gt=0)
-    total_units: Optional[int] = Field(None, gt=0)
-    building_id: Optional[str] = None  # Moved from Property to Building
-
-    @computed_field
-    def building_description(self) -> str:
-        """Generate a human-readable building description for semantic search"""
-        desc_parts = []
-        if self.year_built:
-            desc_parts.append(f"Built in {self.year_built}")
-        if self.structure:
-            desc_parts.append(f"{self.structure} structure")
-        if self.total_floors:
-            desc_parts.append(f"{self.total_floors} floors")
-        return ", ".join(desc_parts) if desc_parts else ""
+class BuildingNotes(BaseModel):
+    summary: Optional[str] = None
+    description: Optional[str] = None
+    facilities: Optional[dict] = None
 
 class Details(BaseModel):
     layout: Optional[str] = None
@@ -162,183 +249,41 @@ class Details(BaseModel):
     floor: Optional[str] = None
     land_rights: Optional[LandRights] = None
     transaction_type: Optional[str] = None
-    management_fee: Optional[int] = Field(None, gt=0)
-    repair_reserve_fund: Optional[int] = Field(None, gt=0)
+    management_fee: Optional[int] = None
+    repair_reserve_fund: Optional[int] = None
 
-    @computed_field
-    def details_description(self) -> str:
-        """Generate a human-readable details description for semantic search"""
-        desc_parts = []
-        if self.layout:
-            desc_parts.append(f"Layout: {self.layout}")
-        if self.floor:
-            desc_parts.append(f"Floor: {self.floor}")
-        if self.balcony_direction:
-            desc_parts.append(f"Balcony facing {self.balcony_direction}")
-        if self.land_rights:
-            desc_parts.append(f"Land rights: {self.land_rights}")
-        return ", ".join(desc_parts) if desc_parts else ""
-
-class Facility(BaseModel):
-    """New model for structured facility information"""
-    category: str  # e.g., 'Supermarket', 'Convenience Store', 'Park'
-    name: str
-    distance_description: str  # e.g., '2min walk', '300m'
-    additional_info: Optional[str] = None
-
-class BuildingNotes(BaseModel):
-    summary: str
-    description: str
-    facilities: List[Facility] = []  # Changed to structured Facility objects
-
-    @computed_field
-    def notes_description(self) -> str:
-        """Generate a human-readable notes description for semantic search"""
-        facility_desc = "\n".join(f"{f.category}: {f.name} ({f.distance_description})" 
-                                for f in self.facilities)
-        return f"{self.summary}\n\n{self.description}\n\nNearby Facilities:\n{facility_desc}"
+class Building(BaseModel):
+    structure: Optional[str] = None
+    year_built: Optional[int] = None
+    total_floors: Optional[int] = None
+    total_units: Optional[int] = None
 
 class Property(BaseModel):
     id: int
-    name: str
+    url: HttpUrl
     property_type: PropertyType
-    type: PropertyCategory
-    url: str
+    name: str
     address: Address
     area: Area
+    type: PropertyTypeEnum
     price: Price
     images: Images
-    amenities: List[str] = []
+    nearest_stations: List[Station] = []
     unit_number: Optional[str] = None
     floor: Optional[str] = None
     contract: Optional[Contract] = None
-    year_built: Optional[int] = Field(None, ge=1900, le=datetime.now().year + 1)
+    year_built: Optional[int] = None
     initial_cost_estimate: Optional[InitialCostEstimate] = None
-    other_requirements: Optional[OtherRequirements] = None
-    additional_info: Optional[str] = None
-    balcony: Optional[str] = None
-    bedrooms: Optional[str] = None
-    layout: Optional[str] = None
-    listing_id: Optional[str] = None
-    status: Optional[PropertyStatus] = None
+    features: Optional[Features] = None
     unit_notes: Optional[str] = None
     unit_notes_amenities: Optional[List[str]] = None
-    building: Optional[Building] = None
-    details: Optional[Details] = None
+    bedrooms: Optional[str] = None
+    balcony: Optional[str] = None
     building_notes: Optional[BuildingNotes] = None
-    nearest_stations: List[Station] = []
-    features: Optional[Dict[str, List[str]]] = None
-    last_updated: Optional[datetime] = None
-
-    class Config:
-        use_enum_values = True  # This ensures enum values are used in JSON output
-
-    @computed_field
-    def semantic_description(self) -> str:
-        """Generate a comprehensive description for semantic search"""
-        parts = [
-            f"{self.name} - {self.type} for {self.property_type}",
-            f"Location: {self.address.location_description}",
-            self.area.size_description,
-            self.price.price_description
-        ]
-        
-        if self.nearest_stations:
-            station_desc = [s.station_description for s in self.nearest_stations]
-            parts.append("Stations: " + "; ".join(station_desc))
-            
-        if self.building:
-            parts.append(self.building.building_description)
-            
-        if self.details:
-            parts.append(self.details.details_description)
-            
-        if self.building_notes:
-            parts.append(self.building_notes.notes_description)
-            
-        if self.amenities:
-            parts.append("Amenities: " + ", ".join(self.amenities))
-            
-        return "\n".join(filter(None, parts))
-
-    @computed_field
-    def search_keywords(self) -> List[str]:
-        """Generate relevant keywords for search enhancement"""
-        keywords = []
-        if self.layout:
-            keywords.extend(self.layout.split())
-        if self.features:
-            for feature_list in self.features.values():
-                keywords.extend(feature_list)
-        if self.amenities:
-            keywords.extend(self.amenities)
-        return list(set(keywords))
-
-    @computed_field
-    def property_highlights(self) -> Dict[str, str]:
-        """Generate key highlights for quick property overview"""
-        return {
-            "size": self.area.size_description,
-            "price": self.price.price_description,
-            "location": self.address.location_description,
-            "nearest_station": self.nearest_stations[0].station_description if self.nearest_stations else "No station info",
-            "year_built": str(self.year_built) if self.year_built else "Unknown",
-            "key_features": ", ".join(self.search_keywords[:5]) if self.search_keywords else "No features listed"
-        }
-
-    @computed_field
-    def accessibility_metrics(self) -> Dict[str, float]:
-        """Calculate various accessibility metrics"""
-        if not self.nearest_stations:
-            return {"overall_score": 0.0}
-            
-        station_scores = [s.accessibility_score for s in self.nearest_stations]
-        return {
-            "overall_score": sum(station_scores) / len(station_scores),
-            "best_station_score": max(station_scores),
-            "average_walk_time": sum(s.walk_time_min for s in self.nearest_stations) / len(self.nearest_stations)
-        }
-
-class Properties(BaseModel):
-    properties: List[Property]
-
-# Query elements for semantic search
-class SemanticSearchQuery(BaseModel):
-    """Enhanced query model for semantic search"""
-    query_text: str
-    property_type: Optional[str] = None
-    price_range: Optional[tuple[int, int]] = None
-    area_range: Optional[tuple[float, float]] = None
-    location_preference: Optional[str] = None
-    max_walk_time: Optional[int] = Field(None, ge=0, le=60)
-    amenities_required: List[str] = []
-    exclude_keywords: List[str] = []
-    sort_by: Optional[str] = Field(None, pattern="^(price|distance|newest)$")
-
-# Query elements extracted by LLM
-class QueryElements(BaseModel):
-    keywords: List[str] = []
-    property_type: Optional[str] = None
-    max_total_price: Optional[int] = None
-    max_monthly_price: Optional[int] = None
-    short_term_duration: Optional[str] = None
-    min_area_m2: Optional[float] = None
-    ward: Optional[str] = None
-    pet_friendly: Optional[bool] = None
-    max_walk_time: Optional[int] = None
-    station_name: Optional[str] = None
-    train_lines: Optional[List[str]] = None
-    min_year_built: Optional[int] = None
-    min_floor: Optional[str] = None
-    max_floor: Optional[str] = None
-    contract_length: Optional[str] = None
-    max_management_fee: Optional[int] = None
-    max_guarantor_service: Optional[int] = None
-    max_fire_insurance: Optional[int] = None
-    japanese_required: Optional[bool] = None
-    amenities: Optional[List[str]] = None
-    unit_notes_amenities: Optional[List[str]] = None
     layout: Optional[str] = None
-    land_rights: Optional[str] = None
-    status: Optional[str] = None
-    building_id: Optional[str] = None
+    status: Optional[Status] = None
+    listing_id: Optional[str] = None
+    last_updated: Optional[date] = None
+    details: Optional[Details] = None
+    building: Optional[Building] = None
+    additional_info: Optional[str] = None
