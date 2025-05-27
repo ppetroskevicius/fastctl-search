@@ -192,13 +192,12 @@ class Address(BaseModel):
     full: str
     latitude: Optional[float] = Field(None, ge=-90, le=90)
     longitude: Optional[float] = Field(None, ge=-180, le=180)
-    ward: Optional[str] = None  # Added for better location search
-    city: Optional[str] = None  # Added for better location search
-    postal_code: Optional[str] = None  # Added for better location search
+    ward: Optional[str] = None
+    city: Optional[str] = None
+    postal_code: Optional[str] = None
 
     @computed_field
     def location_description(self) -> str:
-        """Generate a human-readable location description for semantic search"""
         parts = [self.full]
         if self.ward:
             parts.append(f"in {self.ward}")
@@ -214,15 +213,14 @@ class Area(BaseModel):
 
     @computed_field
     def size_description(self) -> str:
-        """Generate a human-readable size description for semantic search"""
         ft2_part = f" ({self.ft2:.1f}ft²)" if self.ft2 is not None else ""
         return f"{self.m2:.1f}㎡{ft2_part}"
 
 class Price(BaseModel):
     currency: str = "JPY"
-    total: Optional[int] = None  # For Buy
-    monthly_total: Optional[int] = None  # For Rent/Short-term
-    rent: Optional[int] = None  # For Rent/Short-term
+    total: Optional[int] = None
+    monthly_total: Optional[int] = None
+    rent: Optional[int] = None
     management_fee: Optional[int] = None
     short_term_monthly_total: Optional[int] = None
     short_term_rent: Optional[int] = None
@@ -232,13 +230,18 @@ class Price(BaseModel):
 
     @computed_field
     def price_description(self) -> str:
-        """Generate a human-readable price description for semantic search"""
+        parts = []
         if self.total:
-            return f"{self.total:,} {self.currency} (total)"
-        elif self.monthly_total:
-            return f"{self.monthly_total:,} {self.currency}/month"
-        else:
-            return f"{self.short_term_monthly_total:,} {self.currency}/month (short-term)"
+            parts.append(f"{self.total:,} {self.currency} (total)")
+        if self.monthly_total:
+            parts.append(f"{self.monthly_total:,} {self.currency}/month")
+        if self.short_term_monthly_total:
+            parts.append(f"{self.short_term_monthly_total:,} {self.currency}/month (short-term)")
+        if self.long_term_duration:
+            parts.append(f"Long-term: {self.long_term_duration}")
+        if self.short_term_duration:
+            parts.append(f"Short-term: {self.short_term_duration}")
+        return "; ".join(parts) if parts else "Price not specified"
 
 class Images(BaseModel):
     main: str
@@ -256,15 +259,13 @@ class Station(BaseModel):
 
     @computed_field
     def station_description(self) -> str:
-        """Generate a human-readable station description for semantic search"""
-        lines_str = ", ".join(line.name for line in self.lines)
+        lines_str = ", ".join(f"{line.company.value if line.company else ''} {line.name.value}" for line in self.lines)
         return f"{self.station_name} Station ({self.walk_time_min} min walk) - Lines: {lines_str}"
     
     @computed_field
     def accessibility_score(self) -> float:
-        """Calculate an accessibility score based on walk time and number of lines"""
-        base_score = 100 - (self.walk_time_min * 2)  # Decrease score by 2 points per minute
-        line_bonus = len(self.lines) * 5  # Add 5 points per line
+        base_score = 100 - (self.walk_time_min * 2)
+        line_bonus = len(self.lines) * 5
         return min(100, max(0, base_score + line_bonus))
 
 class Contract(BaseModel):
@@ -273,8 +274,12 @@ class Contract(BaseModel):
 
     @computed_field
     def contract_description(self) -> str:
-        """Generate a human-readable contract description for semantic search"""
-        return f"{self.type} contract for {self.length}"
+        parts = []
+        if self.type:
+            parts.append(self.type)
+        if self.length:
+            parts.append(f"for {self.length}")
+        return " ".join(parts) if parts else ""
 
 class InitialCostEstimate(BaseModel):
     first_month_rent: Optional[int] = None
@@ -285,8 +290,7 @@ class InitialCostEstimate(BaseModel):
 
     @computed_field
     def cost_summary(self) -> str:
-        """Generate a human-readable cost summary for semantic search"""
-        return f"Initial costs: {self.estimated_total:,} including {self.first_month_rent:,} first month rent"
+        return f"Initial costs: {self.estimated_total:,} including {self.first_month_rent:,} first month rent" if self.estimated_total else ""
 
 class Features(BaseModel):
     unit: List[Feature] = []
@@ -299,7 +303,6 @@ class BuildingNotes(BaseModel):
 
     @computed_field
     def notes_description(self) -> str:
-        """Generate a human-readable notes description for semantic search"""
         parts = []
         if self.summary:
             parts.append(self.summary)
@@ -309,7 +312,6 @@ class BuildingNotes(BaseModel):
             parts.append("Nearby Facilities:")
             for key, value in self.facilities.items():
                 parts.append(f"{key}: {value}")
-        
         return "\n\n".join(parts) if parts else ""
 
 class Details(BaseModel):
@@ -323,7 +325,6 @@ class Details(BaseModel):
 
     @computed_field
     def details_description(self) -> str:
-        """Generate a human-readable details description for semantic search"""
         desc_parts = []
         if self.layout:
             desc_parts.append(f"Layout: {self.layout}")
@@ -333,6 +334,8 @@ class Details(BaseModel):
             desc_parts.append(f"Balcony facing {self.balcony_direction}")
         if self.land_rights:
             desc_parts.append(f"Land rights: {self.land_rights}")
+        if self.transaction_type:
+            desc_parts.append(f"Transaction: {self.transaction_type}")
         return ", ".join(desc_parts) if desc_parts else ""
 
 class Building(BaseModel):
@@ -343,7 +346,6 @@ class Building(BaseModel):
 
     @computed_field
     def building_description(self) -> str:
-        """Generate a human-readable building description for semantic search"""
         desc_parts = []
         if self.year_built:
             desc_parts.append(f"Built in {self.year_built}")
@@ -384,31 +386,36 @@ class Property(BaseModel):
     additional_info: Optional[str] = None
 
     class Config:
-        use_enum_values = True  # This ensures enum values are used in JSON output
+        use_enum_values = True
 
     @computed_field
     def semantic_description(self) -> str:
-        """Generate a comprehensive description for semantic search"""
         parts = [
             f"{self.name} - {self.type} for {self.property_type}",
             f"Location: {self.address.location_description}",
             self.area.size_description,
-            self.price.price_description
+            self.price.price_description,
+            self.unit_number if self.unit_number else "",
+            self.floor if self.floor else "",
+            self.bedrooms if self.bedrooms else "",
+            self.balcony if self.balcony else "",
+            self.status if self.status else "",
+            self.unit_notes if self.unit_notes else "",
+            self.additional_info if self.additional_info else "",
         ]
-        
         if self.nearest_stations:
             station_desc = [s.station_description for s in self.nearest_stations]
             parts.append("Stations: " + "; ".join(station_desc))
-            
         if self.building:
             parts.append(self.building.building_description)
-            
         if self.details:
             parts.append(self.details.details_description)
-            
         if self.building_notes:
             parts.append(self.building_notes.notes_description)
-            
+        if self.contract:
+            parts.append(self.contract.contract_description)
+        if self.initial_cost_estimate:
+            parts.append(self.initial_cost_estimate.cost_summary)
         if self.features:
             all_features = []
             if self.features.unit:
@@ -417,15 +424,12 @@ class Property(BaseModel):
                 all_features.extend(self.features.building)
             if all_features:
                 parts.append("Features: " + ", ".join(all_features))
-            
         if self.unit_notes_amenities:
             parts.append("Amenities: " + ", ".join(self.unit_notes_amenities))
-            
         return "\n".join(filter(None, parts))
 
     @computed_field
     def search_keywords(self) -> List[str]:
-        """Generate relevant keywords for search enhancement"""
         keywords = []
         if self.layout:
             keywords.extend(self.layout.split())
@@ -436,11 +440,16 @@ class Property(BaseModel):
                 keywords.extend(self.features.building)
         if self.unit_notes_amenities:
             keywords.extend(self.unit_notes_amenities)
+        if self.address.ward:
+            keywords.append(self.address.ward)
+        if self.address.city:
+            keywords.append(self.address.city)
+        if self.status:
+            keywords.append(self.status)
         return list(set(keywords))
 
     @computed_field
     def property_highlights(self) -> Dict[str, str]:
-        """Generate key highlights for quick property overview"""
         return {
             "size": self.area.size_description,
             "price": self.price.price_description,
@@ -452,13 +461,11 @@ class Property(BaseModel):
 
     @computed_field
     def accessibility_metrics(self) -> Dict[str, float]:
-        """Calculate various accessibility metrics"""
         if not self.nearest_stations:
             return {"overall_score": 0.0}
-            
         station_scores = [s.accessibility_score for s in self.nearest_stations]
         return {
             "overall_score": sum(station_scores) / len(station_scores),
             "best_station_score": max(station_scores),
-            "average_walk_time": sum(s.walk_time_min for s in self.nearest_stations) / len(self.nearest_stations)
+            "average_walk_time": sum(s.walk_time_min for s in self.nearest_stations) / len(station_scores)
         }
