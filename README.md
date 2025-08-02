@@ -1,22 +1,5 @@
 # Real Estate Property Semantic Search Demo
 
-## Prompt1
-
-I would like to create a semantic search demo for the real estate agency. I have real estate property data saved in the JSON format. I also created a data schema. Could you please suggest what kind of semantic searches on real estate properties I should be able to do on such data?
-
-## Prompt2
-Here are my demo system preferences: 
-
-1. Local setup for the demo is fine.
-2. The CLI interface is fine. No need to build API or web interface.
-3. Use QdrantDB in a docker container or so.
-4. I want to use Pydantic
-5. I want to use OpenAI models for LLM. I have OPENAI_API_KEY setup in my environment. 
-6. I want to build a hybrid search (semantic and structured). I want to use LLM to extract query elements for the structured query. I do not want to use legacy hard coded regex for extracting search keywords from the query. I has to be semantic natural language search. That is the purpose of the demo.
-7. Preferably demo has to work with 3000 real estate properties.
-
-Let's try with the CLI, test the search quality and then we will increase the complexity gradually.
-
 ## Project Structure
 
 real_estate_search/
